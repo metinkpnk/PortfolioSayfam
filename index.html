@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Temel SEO Meta Etiketleri -->
+    <title>Metin KEPENEK - Full-Stack Devoloper</title>
+    <meta name="title" content="Metin KEPENEK - Full-Stack Devoloper" />
+    <meta name="description"
+        content="Metin KEPENEK - Flutter geliştirme, AI entegrasyonu ve açık kaynak katkıları konusunda uzmanlaşmış Profesyonel Yazılım Mühendisi. Küresel ölçekte işletmeleri güçlendiren yenilikçi çözümler inşa ediyor." />
+    <meta name="keywords"
+        content="Usama Sarwar, Flutter Geliştiricisi, Mobil Uygulama Geliştirme, Çapraz Platform Uygulamalar, Full-Stack Geliştirici, Açık Kaynak, Pakistanlı Geliştirici, Yazılım Mühendisi, Kişisel Marka" />
+    <meta name="author" content="Metin KEPENEK" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Türkçe" />
+    <meta name="google-site-verification" content="PLhfdQAUnBd8AzqrpyM8NGO8kVHUTKioz2VXzMM2OyE" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://github.com/metinkpnk" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://github.com/metinkpnk" />
+    <meta property="og:title" content="Metin KEPENEK - Full-Stack Devoloper" />
+    <meta property="og:description"
+        content="Profesyonel Yazılım Mühendisi, Flutter geliştirme, AI entegrasyonu ve açık kaynak katkıları konusunda uzmanlaşmış." />
+    <meta property="og:image" content="https://usama.dev/UsamaSarwar.png" />
+    <meta property="og:site_name" content="Metin KEPENEK'in Portföyü" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://usamasarwar.github.io/UsamaSarwar/" />
+    <meta property="twitter:title" content="Usama Sarwar - Full-Stack Flutter Uygulama Geliştiricisi" />
+    <meta property="twitter:description"
+        content="Profesyonel Yazılım Mühendisi, Flutter geliştirme, AI entegrasyonu ve açık kaynak katkıları konusunda uzmanlaşmış." />
+    <meta property="twitter:image" content="https://usama.dev/UsamaSarwar.png" />
+    <meta property="twitter:creator" content="@UsamaSarwarPro" />
+
+    <!-- Tema ve Uygulama Meta Etiketleri -->
+    <meta name="theme-color" content="#7c3aed" />
+    <meta name="msapplication-TileColor" content="#7c3aed" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome İkonları -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <!-- Özel CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Tailwind Yapılandırması -->
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ["Inter", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"],
+                    },
+                    colors: {
+                        primary: {
+                            50: "#faf5ff",
+                            100: "#f3e8ff",
+                            200: "#e9d5ff",
+                            300: "#d8b4fe",
+                            400: "#c084fc",
+                            500: "#a855f7",
+                            600: "#9333ea",
+                            700: "#7c3aed",
+                            800: "#6b21a8",
+                            900: "#581c87",
+                        },
+                    },
+                    animation: {
+                        "fade-in": "fadeIn 0.5s ease-in-out",
+                        "slide-up": "slideUp 0.5s ease-out",
+                        "bounce-slow": "bounce 2s infinite",
+                        "pulse-slow": "pulse 3s infinite",
+                        float: "float 6s ease-in-out infinite",
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            "0%": { opacity: "0" },
+                            "100%": { opacity: "1" },
+                        },
+                        slideUp: {
+                            "0%": { transform: "translateY(20px)", opacity: "0" },
+                            "100%": { transform: "translateY(0)", opacity: "1" },
+                        },
+                        float: {
+                            "0%, 100%": { transform: "translateY(0px)" },
+                            "50%": { transform: "translateY(-10px)" },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+
+    
+</head>
+
+<body class="bg-gray-900 text-white font-inter antialiased dark">
+    <!-- Navigasyon -->
+    <nav id="navbar"
+        class="fixed top-0 w-full z-50 transition-all duration-300 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-xl font-bold text-white hover:text-primary-400 transition-colors">
+                        <i class="fas fa-code text-primary-500 mr-2"></i>
+                        Metin KEPENEK
+                    </a>
+                </div>
+
+                <!-- Masaüstü Navigasyonu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home"
+                            class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Ana Sayfa</a>
+                        <a href="#about"
+                            class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Hakkımda</a>
+                        <a href="#portfolio"
+                            class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Portföy</a>
+                        <a href="#contact"
+                            class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">İletişim</a>
+                    </div>
+                </div>
+
+                <!-- Mobil Menü Butonu -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button"
+                        class="relative p-3 text-gray-400 hover:text-white focus:outline-none transition-colors duration-300">
+                        <div class="hamburger-lines w-6 h-5 flex flex-col justify-between">
+                            <span class="hamburger-line block w-full h-0.5 bg-current transition-all duration-300 ease-in-out transform origin-center"></span>
+                            <span class="hamburger-line block w-full h-0.5 bg-current transition-all duration-300 ease-in-out transform origin-center"></span>
+                            <span class="hamburger-line block w-full h-0.5 bg-current transition-all duration-300 ease-in-out transform origin-center"></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobil Menü -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-800">
+                <a href="#home"
+                    class="mobile-nav-link block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md">Ana Sayfa</a>
+                <a href="#about"
+                    class="mobile-nav-link block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md">Hakkımda</a>
+                <a href="#portfolio"
+                    class="mobile-nav-link block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md">Portföy</a>
+                <a href="#contact"
+                    class="mobile-nav-link block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Bölümü -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Animasyonlu Arka Plan -->
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-primary-600/20 rounded-full blur-3xl animate-pulse-slow">
+            </div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse-slow"
+                style="animation-delay: 2s"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero İçeriği -->
+                <div class="text-center lg:text-left animate-fade-in">
+                    <div class="mb-6">
+                        <span
+                            class="inline-block px-4 py-2 bg-primary-600/20 text-primary-300 rounded-full text-sm font-medium mb-4 animate-slide-up">
+                            <i class="fas fa-rocket mr-2"></i>
+                            Projeler İçin Uygun
+                        </span>
+                        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+                            Metin
+                            <span class="bg-gradient-to-r from-primary-400 to-purple-400 bg-clip-text text-transparent">KEPENEK</span>
+                        </h1>
+                        <p class="text-xl sm:text-2xl text-gray-300 mb-4">Full-Stack Devoloper</p>
+                        <p class="text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0">
+                            Flutter ile yenilikçi çözümler inşa ediyorum, AI entegrasyonu ve modern web teknolojileri kullanarak. Etkili dijital deneyimler yaratmaya tutkuyorum.
+                        </p>
+                    </div>
+
+                    <!-- CTA Butonları -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+                        <a href="#portfolio"
+                            class="px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-primary-500/25">
+                            <i class="fas fa-folder-open mr-2"></i>Portföyü Görüntüle
+                        </a>
+                        <a href="#contact"
+                            class="px-8 py-3 border-2 border-primary-600 text-primary-400 hover:bg-primary-600 hover:text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-envelope mr-2"></i>İletişime Geç
+                        </a>
+                    </div>
+
+                    <!-- Sosyal Bağlantılar -->
+                    <div class="flex justify-center lg:justify-start space-x-6">
+                        <a href="https://github.com/metinkpnk" target="_blank"
+                            class="text-gray-400 hover:text-white transition-colors transform hover:scale-110">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/metin-kepenek-ba768922a/" target="_blank"
+                            class="text-gray-400 hover:text-white transition-colors transform hover:scale-110">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/metin_kpnk/" target="_blank"
+                            class="text-gray-400 hover:text-white transition-colors transform hover:scale-110">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="https://www.facebook.com/metin.kepenek.79" target="_blank"
+                            class="text-gray-400 hover:text-white transition-colors transform hover:scale-110">
+                            <i class="fab fa-facebook text-2xl"></i>
+                        </a>
+                        <a href="https://x.com/mtnkepenek" target="_blank"
+                            class="text-gray-400 hover:text-white transition-colors transform hover:scale-110">
+                            <i class="fab fa-x-twitter text-2xl"></i>
+                        </a>   
+                    </div>
+                </div>
+
+                <!-- Hero Görseli -->
+                <div class="relative flex justify-center lg:justify-end animate-float">
+                    <div class="relative">
+                        <div
+                            class="w-72 h-72 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary-500/30 shadow-2xl shadow-primary-500/20">
+                            <img src="images/profil.png" alt="Metin KEPENEK"
+                                class="w-full h-full object-cover" />
+                        </div>
+                        <div
+                            class="absolute -top-4 -right-4 w-24 h-24 bg-primary-600/20 rounded-full blur-xl animate-pulse">
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-purple-600/20 rounded-full blur-xl animate-pulse"
+                            style="animation-delay: 1s"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Gösterge -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+            <a href="#about" class="text-gray-400 hover:text-white transition-colors">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+        <!-- Hakkımda Bölümü -->
+    <section id="about" class="py-20 bg-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                    Hakkımda
+                    <span class="bg-gradient-to-r from-primary-400 to-purple-400 bg-clip-text text-transparent"></span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Fark yaratan yenilikçi çözümler yaratmaya tutkuyla bağlıyım
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Hakkımda İçeriği -->
+                <div class="space-y-6">
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        Ben, çapraz platform uygulamaları inşa etmeye tutkusu olan bir Full-Stack Flutter Uygulama Geliştiricisiyim.
+                        Mobil gelişim, web teknolojileri ve AI entegrasyonunda uzmanlaşmış bir yazılım geliştiricisiyim ve işletmelerin dijital vizyonlarını hayata geçirmelerine yardımcı oluyorum.
+                    </p>
+
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        Yazılım geliştirme yolculuğum, sağlık uygulamalarından e-ticaret platformlarına kadar farklı projelerde çalışmamı sağladı.
+                        Her zaman temiz kod, ölçeklenebilir mimari ve kullanıcı odaklı tasarıma odaklandım.
+                    </p>
+
+                    <!-- Yetenekler -->
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <img src="images/c-sharp.png" alt="C# Logo" class="w-8 h-8">
+                                <span>Kurumsal Çözümler</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-bullhorn text-primary-500"></i>
+                                <span>Dijital Pazarlama</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-paint-brush text-primary-500"></i>
+                                <span>Grafik Tasarım</span>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-brain text-primary-500"></i>
+                                <span>AI Entegrasyonu</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-cloud text-primary-500"></i>
+                                <span>Bulut Çözümleri</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-mobile-alt text-primary-500"></i>
+                                <span>Mobil Uygulamalar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- İstatistikler -->
+                <div class="grid grid-cols-2 gap-6">
+                    <div
+                        class="text-center p-6 bg-gray-800/80 rounded-xl backdrop-blur-sm border border-gray-700 hover:border-primary-500/50 transition-all duration-300 transform hover:scale-105">
+                        <div class="text-3xl font-bold text-primary-400 mb-2" data-count="1247">0</div>
+                        <div class="text-gray-400">Mega Projeler</div>
+                    </div>
+                    <div
+                        class="text-center p-6 bg-gray-800/80 rounded-xl backdrop-blur-sm border border-gray-700 hover:border-primary-500/50 transition-all duration-300 transform hover:scale-105">
+                        <div class="text-3xl font-bold text-primary-400 mb-2" data-count="11">0</div>
+                        <div class="text-gray-400">Yıl Deneyim</div>
+                    </div>
+                    <div
+                        class="text-center p-6 bg-gray-800/80 rounded-xl backdrop-blur-sm border border-gray-700 hover:border-primary-500/50 transition-all duration-300 transform hover:scale-105">
+                        <div class="text-3xl font-bold text-primary-400 mb-2" data-count="2743">0</div>
+                        <div class="text-gray-400">Mutlu Müşteriler</div>
+                    </div>
+                    <div
+                        class="text-center p-6 bg-gray-800/80 rounded-xl backdrop-blur-sm border border-gray-700 hover:border-primary-500/50 transition-all duration-300 transform hover:scale-105">
+                        <div class="text-3xl font-bold text-primary-400 mb-2" data-count="204">0</div>
+                        <div class="text-gray-400">GitHub Yıldızları</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portföy Bölümü -->
+    <section id="portfolio" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                    Benim
+                    <span class="bg-gradient-to-r from-primary-400 to-purple-400 bg-clip-text text-transparent">Portföyüm</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Son projelerim ve yeniliklerimin bir sergisi
+                </p>
+            </div>
+
+            <!-- Portföy Filtrele -->
+            <div class="flex flex-wrap justify-center mb-12 space-x-2 space-y-2">
+                <button class="portfolio-filter active px-6 py-2 rounded-full bg-primary-600 text-white font-medium"
+                    data-filter="all">
+                    Hepsi
+                </button>
+                <button
+                    class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700 font-medium transition-colors"
+                    data-filter="mobile">
+                    Mobil
+                </button>
+                <button
+                    class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700 font-medium transition-colors"
+                    data-filter="web">
+                    Web
+                </button>
+                <button
+                    class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700 font-medium transition-colors"
+                    data-filter="ai">
+                    AI
+                </button>
+            </div>
+
+            <!-- Portföy Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Proje Örneği -->
+                <div class="portfolio-item group relative bg-gray-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300"
+                    data-category="mobile web">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1481437156560-3205f6a55735?w=400&h=300&fit=crop"
+                            alt="OpenListings"
+                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        </div>
+                        <div
+                            class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="flex space-x-3">
+                                <a href="https://play.google.com/store/apps/details?id=dev.usama.openlistings" target="_blank"
+                                    class="flex items-center justify-center w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors">
+                                    <i class="fab fa-google-play"></i>
+                                </a>
+                                <a href="https://openlistings.org" target="_blank"
+                                    class="flex items-center justify-center w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <span class="px-2 py-1 bg-primary-600/20 text-primary-300 rounded text-xs font-medium">Mobil</span>
+                            <span class="px-2 py-1 bg-blue-600/20 text-blue-300 rounded text-xs font-medium">İş</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">OpenListings » Satın Al & Sat</h3>
+                        <p class="text-gray-400 mb-4">
+                            Topluluk tarafından yönlendirilen bir pazar platformu. Ürünleri, hizmetleri ve fırsatları listelemek, keşfetmek ve bağlantı kurmak için tamamen ücretsizdir.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Flutter</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Dart</span>
+                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Diğer projeler için aynı yapı devam eder... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim Bölümü -->
+    <section id="contact" class="py-20 bg-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                    Hadi Çalışalım
+                    <span class="bg-gradient-to-r from-primary-400 to-purple-400 bg-clip-text text-transparent">Birlikte</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Bir projeniz mi var? Fikirlerinizi hayata geçirebilmem için nasıl yardımcı olabileceğimi konuşalım
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- İletişim Formu -->
+                <div class="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Ad</label>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                                    placeholder="Adınız" />
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">E-posta</label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                                    placeholder="email@ornek.com" />
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Konu</label>
+                            <input type="text" id="subject" name="subject" required
+                                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                                placeholder="Proje Tartışması" />
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Mesaj</label>
+                            <textarea id="message" name="message" rows="6" required
+                                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none"
+                                placeholder="Projeniz hakkında bana bilgi verin..."></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-800">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Mesajı Gönder
+                        </button>
+                    </form>
+                </div>
+
+                <!-- İletişim Bilgileri -->
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 bg-primary-600/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt text-primary-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-2">Konum</h3>
+                            <p class="text-gray-400">Türkiye/Kahramanmaraş<br />Uzaktan Çalışma İçin Uygun</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 bg-primary-600/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-envelope text-primary-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-2">E-posta</h3>
+                            <a href="mtnkepenek@gmail.com"
+                                class="text-gray-400 hover:text-primary-400 transition-colors">mtnkepenek@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 bg-primary-600/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-phone text-primary-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-2">Telefon</h3>
+                            <a href="tel:+923100007773"
+                                class="text-gray-400 hover:text-primary-400 transition-colors">0 534 069 20 40</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 bg-primary-600/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-clock text-primary-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-2">Yanıt Süresi</h3>
+                            <p class="text-gray-400">Genellikle 24 saat içinde</p>
+                        </div>
+                    </div>
+
+                    <!-- Sosyal Bağlantılar -->
+                    <div class="pt-6">
+                        <h3 class="text-lg font-semibold text-white mb-4">Benimle Bağlantıya Geç</h3>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/metinkpnk" target="_blank"
+                                class="w-10 h-10 bg-gray-700 hover:bg-primary-600 rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/metin-kepenek-ba768922a/" target="_blank"
+                                class="w-10 h-10 bg-gray-700 hover:bg-primary-600 rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://x.com/mtnkepenek" target="_blank"
+                                class="w-10 h-10 bg-gray-700 hover:bg-primary-600 rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110">
+                                <i class="fab fa-x-twitter"></i>
+                            </a>
+                            
+                            <a href="https://www.instagram.com/metin_kpnk/" target="_blank"
+                                class="w-10 h-10 bg-gray-700 hover:bg-primary-600 rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                                 <a href="https://www.facebook.com/metin.kepenek.79" target="_blank"
+                                class="w-10 h-10 bg-gray-700 hover:bg-primary-600 rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110">
+                                <i class="fab fa-facebook"></i>
+                            </a> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Marka -->
+                <div class="lg:col-span-2">
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold text-white mb-4">
+                            <i class="fas fa-code text-primary-500 mr-2"></i>
+                            Metin KEPENEK
+                        </h3>
+                        <p class="text-gray-400 max-w-md">
+                            Full-Stack Flutter Uygulama Geliştiricisi. İşletmeleri ve toplulukları güçlendiren yenilikçi çözümler yaratmaya tutkusu olan bir yazılım geliştiricisi.
+                        </p>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/metinkpnk" target="_blank"
+                            class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/metin-kepenek-ba768922a/" target="_blank"
+                            class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/metin_kpnk/" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://www.facebook.com/metin.kepenek.79" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="https://x.com/mtnkepenek" target="_blank"
+                            class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-x-twitter text-xl"></i>
+                        </a>
+                        
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hızlı Linkler -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Hızlı Linkler</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#home" class="text-gray-400 hover:text-white transition-colors">Ana Sayfa</a>
+                        </li>
+                        <li>
+                            <a href="#about" class="text-gray-400 hover:text-white transition-colors">Hakkımda</a>
+                        </li>
+                        <li>
+                            <a href="#portfolio" class="text-gray-400 hover:text-white transition-colors">Portföy</a>
+                        </li>
+                        <li>
+                            <a href="#services" class="text-gray-400 hover:text-white transition-colors">Hizmetler</a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="text-gray-400 hover:text-white transition-colors">İletişim</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Öne Çıkan Projeler -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Öne Çıkan Projeler</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="https://openlistings.org" target="_blank"
+                                class="text-gray-400 hover:text-white transition-colors">OpenListings</a>
+                        </li>
+                        <li>
+                            <a href="https://connect.usama.dev" target="_blank" class="text-gray-400 hover:text-white transition-colors">Connect
+                                Platform</a>
+                        </li>
+                        <li>
+                            <a href="https://alshaafi.web.app" target="_blank" class="text-gray-400 hover:text-white transition-colors">AlShaafi
+                                Healthcare</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/UsamaSarwar" target="_blank"
+                                class="text-gray-400 hover:text-white transition-colors">GitHub Portföyü</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">&copy; 2025 Metin KEPENEK. Tüm hakları saklıdır.</p>
+                
+            </div>
+        </div>
+    </footer>
+
+    <!-- Özel JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
