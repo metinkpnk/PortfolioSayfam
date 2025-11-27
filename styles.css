@@ -1,124 +1,120 @@
-/* Custom CSS for Tailwind CSS Portfolio */
-@import "tailwindcss";
-/* Additional custom styles to complement Tailwind */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+/* Tailwind CSS için özel CSS */
+@import "tailwindcss";  /* Tailwind CSS'yi dahil eder */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"); /* Google Fonts üzerinden "Inter" yazı tipini ekler */
 
-/* Smooth scrolling for better UX */
+/* Daha iyi kullanıcı deneyimi için düzgün kaydırma */
 html {
-	scroll-behavior: smooth;
+	scroll-behavior: smooth;  /* Sayfa kaydırıldığında yumuşak geçiş sağlar */
 }
 
-/* Custom scrollbar */
+/* Özel kaydırıcı (scrollbar) */
 ::-webkit-scrollbar {
-	width: 8px;
+	width: 8px;  /* Kaydırıcının genişliğini ayarlar */
 }
 
 ::-webkit-scrollbar-track {
-	background: #1f2937;
+	background: #1f2937;  /* Kaydırıcının arka plan rengini ayarlar */
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #7c3aed;
-	border-radius: 4px;
+	background: #7c3aed;  /* Kaydırıcının parmak kısmının rengini ayarlar */
+	border-radius: 4px;  /* Kaydırıcının parmağını yuvarlar */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: #6b21a8;
+	background: #6b21a8;  /* Kaydırıcının parmağı üzerine gelindiğinde rengini değiştirir */
 }
 
-/* Custom animations */
+/* Özel animasyonlar */
 @keyframes fadeIn {
 	from {
-		opacity: 0;
+		opacity: 0;  /* Başlangıçta görünmez olur */
 	}
 	to {
-		opacity: 1;
+		opacity: 1;  /* Sonunda görünür hale gelir */
 	}
 }
 
 @keyframes slideUp {
 	from {
-		opacity: 0;
-		transform: translateY(20px);
+		opacity: 0;  /* Başlangıçta görünmez olur */
+		transform: translateY(20px);  /* 20px aşağıda başlar */
 	}
 	to {
-		opacity: 1;
-		transform: translateY(0);
+		opacity: 1;  /* Sonunda görünür hale gelir */
+		transform: translateY(0);  /* Yukarı doğru kayarak sıfırlanır */
 	}
 }
 
 @keyframes float {
-	0%,
-	100% {
-		transform: translateY(0px);
+	0%, 100% {
+		transform: translateY(0px);  /* Başlangıç ve bitiş noktası */
 	}
 	50% {
-		transform: translateY(-10px);
+		transform: translateY(-10px);  /* Ortada yukarıya doğru hareket eder */
 	}
 }
 
 @keyframes pulse-slow {
-	0%,
-	100% {
-		opacity: 1;
+	0%, 100% {
+		opacity: 1;  /* Opaklık başta ve sonunda tam görünür */
 	}
 	50% {
-		opacity: 0.5;
+		opacity: 0.5;  /* Ortada opaklık azalır */
 	}
 }
 
 @keyframes bounce-slow {
-	0%,
-	100% {
-		transform: translateY(0);
+	0%, 100% {
+		transform: translateY(0);  /* Başlangıç ve bitiş noktası */
 	}
 	50% {
-		transform: translateY(-10px);
+		transform: translateY(-10px);  /* Ortada yukarıya sıçrar */
 	}
 }
 
-/* Custom gradient text */
+/* Özel gradient (renk geçişli) metin */
 .gradient-text {
-	background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
+	background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);  /* 3 renkli gradient (renk geçişi) uygular */
+	-webkit-background-clip: text;  /* Arka planı metne uygular */
+	-webkit-text-fill-color: transparent;  /* Metnin rengini şeffaf yapar */
+	background-clip: text;  /* Arka planı metne uygular */
 }
 
-/* Glass effect */
+/* Cam efekti */
 .glass {
-	background: rgba(255, 255, 255, 0.1);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: rgba(255, 255, 255, 0.1);  /* Yarı saydam beyaz arka plan */
+	backdrop-filter: blur(10px);  /* Arka planı bulanıklaştırır */
+	-webkit-backdrop-filter: blur(10px);  /* Webkit uyumlu bulanıklaştırma */
+	border: 1px solid rgba(255, 255, 255, 0.1);  /* İnce sınır ekler */
 }
 
 .dark .glass {
-	background: rgba(0, 0, 0, 0.2);
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: rgba(0, 0, 0, 0.2);  /* Koyu temada daha koyu bir cam efekti */
+	border: 1px solid rgba(255, 255, 255, 0.1);  /* İnce sınır ekler */
 }
 
-/* Custom button hover effects */
+/* Buton hover efektleri */
 .btn-hover-grow {
-	transition: all 0.3s ease;
+	transition: all 0.3s ease;  /* Tüm geçişlerin yumuşak olması için süre tanır */
 }
 
 .btn-hover-grow:hover {
-	transform: scale(1.05);
+	transform: scale(1.05);  /* Hover (fare ile üzerine gelindiğinde) butonun büyümesini sağlar */
 }
 
-/* Portfolio card hover effects */
+/* Portföy kartı hover efektleri */
 .portfolio-card {
-	transition: all 0.3s ease;
+	transition: all 0.3s ease;  /* Tüm geçişlerin yumuşak olması için süre tanır */
 }
 
 .portfolio-card:hover {
-	transform: translateY(-10px);
+	transform: translateY(-10px);  /* Hover ile kartı 10px yukarı kaydırır */
 }
 
-/* Service card hover effects */
+/* Hizmet kartı hover efektleri */
 .service-card {
-	transition: all 0.3s ease;
+	transition: all 0.3s ease;  /* Tüm geçişlerin yumuşak olması için süre tanır */
 	position: relative;
 	overflow: hidden;
 }
@@ -130,32 +126,32 @@ html {
 	left: -100%;
 	width: 100%;
 	height: 2px;
-	background: linear-gradient(90deg, transparent, #7c3aed, transparent);
-	transition: left 0.5s;
+	background: linear-gradient(90deg, transparent, #7c3aed, transparent);  /* Hizmet kartı üzerine çizgi efekti ekler */
+	transition: left 0.5s;  /* Sol hareketi 0.5 saniyede yapar */
 }
 
 .service-card:hover::before {
-	left: 100%;
+	left: 100%;  /* Hover ile çizgiyi sağa kaydırır */
 }
 
-/* Text selection */
+/* Metin seçim rengi */
 ::selection {
-	background-color: #7c3aed;
-	color: white;
+	background-color: #7c3aed;  /* Seçilen metnin arka plan rengini değiştirir */
+	color: white;  /* Seçilen metnin rengini beyaz yapar */
 }
 
 ::-moz-selection {
-	background-color: #7c3aed;
-	color: white;
+	background-color: #7c3aed;  /* Firefox için seçim rengi */
+	color: white;  /* Seçilen metnin rengini beyaz yapar */
 }
 
-/* Focus styles for accessibility */
+/* Erişilebilirlik için odak stilleri */
 .focus-visible:focus {
-	outline: 2px solid #7c3aed;
-	outline-offset: 2px;
+	outline: 2px solid #7c3aed;  /* Odaklanmış öğeye dış çizgi ekler */
+	outline-offset: 2px;  /* Dış çizgiyi biraz dışarı kaydırır */
 }
 
-/* Custom loading animation */
+/* Yüklenme animasyonu */
 .loading {
 	position: relative;
 }
@@ -169,175 +165,175 @@ html {
 	height: 20px;
 	margin: -10px 0 0 -10px;
 	border: 2px solid #f3f3f3;
-	border-top: 2px solid #7c3aed;
-	border-radius: 50%;
-	animation: spin 1s linear infinite;
+	border-top: 2px solid #7c3aed;  /* Yüklenme çarkının üst kısmı */
+	border-radius: 50%;  /* Yuvarlak çark yapar */
+	animation: spin 1s linear infinite;  /* Sürekli dönen animasyon */
 }
 
 @keyframes spin {
 	0% {
-		transform: rotate(0deg);
+		transform: rotate(0deg);  /* Başlangıçta 0 derece döner */
 	}
 	100% {
-		transform: rotate(360deg);
+		transform: rotate(360deg);  /* Sonunda 360 derece döner */
 	}
 }
 
-/* Mobile menu animation */
+/* Mobil menü animasyonu */
 .mobile-menu-enter {
-	animation: slideInFromTop 0.3s ease-out;
+	animation: slideInFromTop 0.3s ease-out;  /* Mobil menü için yukarıdan giriş animasyonu */
 }
 
 .mobile-menu-exit {
-	animation: slideOutToTop 0.3s ease-in;
+	animation: slideOutToTop 0.3s ease-in;  /* Mobil menü için yukarıya kayarak çıkış animasyonu */
 }
 
 @keyframes slideInFromTop {
 	from {
-		transform: translateY(-100%);
-		opacity: 0;
+		transform: translateY(-100%);  /* Menü yukarıda başlar */
+		opacity: 0;  /* Başlangıçta görünmez */
 	}
 	to {
-		transform: translateY(0);
-		opacity: 1;
+		transform: translateY(0);  /* Menü normale gelir */
+		opacity: 1;  /* Menü görünür hale gelir */
 	}
 }
 
 @keyframes slideOutToTop {
 	from {
-		transform: translateY(0);
-		opacity: 1;
+		transform: translateY(0);  /* Menüyü normalde başlatır */
+		opacity: 1;  /* Görünür olur */
 	}
 	to {
-		transform: translateY(-100%);
-		opacity: 0;
+		transform: translateY(-100%);  /* Menü yukarı kayar */
+		opacity: 0;  /* Menü kaybolur */
 	}
 }
 
-/* Notification animations */
+/* Bildirim animasyonları */
 .notification {
-	animation: slideInFromRight 0.3s ease-out;
+	animation: slideInFromRight 0.3s ease-out;  /* Sağdan gelen bildirim animasyonu */
 }
 
 @keyframes slideInFromRight {
 	from {
-		transform: translateX(100%);
-		opacity: 0;
+		transform: translateX(100%);  /* Bildirim sağdan başlar */
+		opacity: 0;  /* Başlangıçta görünmez */
 	}
 	to {
-		transform: translateX(0);
-		opacity: 1;
+		transform: translateX(0);  /* Bildirim normale gelir */
+		opacity: 1;  /* Görünür hale gelir */
 	}
 }
 
-/* Dark mode specific styles */
+/* Koyu mod için özel stiller */
 .dark {
-	color-scheme: dark;
+	color-scheme: dark;  /* Koyu tema kullanımı */
 }
 
 .dark .bg-white {
-	background-color: #1f2937;
+	background-color: #1f2937;  /* Koyu temada beyaz arka planı koyu gri yapar */
 }
 
 .dark .text-gray-900 {
-	color: #f9fafb;
+	color: #f9fafb;  /* Koyu temada metin rengini açık yapar */
 }
 
-/* Custom utility classes */
+/* Özel utility (yardımcı) sınıflar */
 .text-shadow {
-	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);  /* Metne gölge ekler */
 }
 
 .box-shadow-xl {
-	box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+	box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);  /* Büyük kutu gölgesi ekler */
 }
 
 .box-shadow-primary {
-	box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
+	box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);  /* Özel renkli kutu gölgesi */
 }
 
-/* Responsive text sizing */
+/* Cevap veren (responsive) metin boyutları */
 @media (max-width: 640px) {
 	.text-responsive-lg {
-		font-size: 1.5rem;
+		font-size: 1.5rem;  /* Küçük ekranlar için metin boyutunu 1.5rem yapar */
 		line-height: 2rem;
 	}
 }
 
 @media (min-width: 640px) {
 	.text-responsive-lg {
-		font-size: 2rem;
+		font-size: 2rem;  /* Orta ekranlar için metin boyutunu 2rem yapar */
 		line-height: 2.5rem;
 	}
 }
 
 @media (min-width: 1024px) {
 	.text-responsive-lg {
-		font-size: 2.5rem;
+		font-size: 2.5rem;  /* Büyük ekranlar için metin boyutunu 2.5rem yapar */
 		line-height: 3rem;
 	}
 }
 
-/* Print styles */
+/* Yazdırma (print) için stiller */
 @media print {
 	.no-print {
-		display: none !important;
+		display: none !important;  /* "no-print" sınıfına sahip öğeleri yazdırırken gizler */
 	}
 
 	body {
-		background: white !important;
-		color: black !important;
+		background: white !important;  /* Yazdırma sırasında arka planı beyaz yapar */
+		color: black !important;  /* Metni siyah yapar */
 	}
 
 	.bg-gray-900,
 	.bg-gray-800 {
-		background: white !important;
+		background: white !important;  /* Koyu temadaki arka planları beyaz yapar */
 	}
 
 	.text-white,
 	.text-gray-300,
 	.text-gray-400 {
-		color: black !important;
+		color: black !important;  /* Beyaz metinleri siyah yapar */
 	}
 }
 
-/* High contrast mode support */
+/* Yüksek kontrast modu desteği */
 @media (prefers-contrast: high) {
 	.bg-primary-600 {
-		background-color: #000000;
+		background-color: #000000;  /* Yüksek kontrastta ana renk siyah olur */
 	}
 
 	.text-primary-400 {
-		color: #000000;
+		color: #000000;  /* Yüksek kontrastta metin rengi siyah olur */
 	}
 
 	.border-primary-500 {
-		border-color: #000000;
+		border-color: #000000;  /* Yüksek kontrastta kenar rengi siyah olur */
 	}
 }
 
-/* Reduced motion support */
+/* Hareket azaltma modu desteği */
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,
 	*::after {
-		animation-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;  /* Animasyonları devre dışı bırakır */
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.01ms !important;
 	}
 
 	html {
-		scroll-behavior: auto;
+		scroll-behavior: auto;  /* Kaydırma animasyonunu devre dışı bırakır */
 	}
 }
 
-/* Custom form styles */
+/* Özel form stilleri */
 .form-input:focus {
-	box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
-	border-color: #7c3aed;
+	box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);  /* Form elemanına odaklanıldığında kutu gölgesi ekler */
+	border-color: #7c3aed;  /* Kenar rengini mavi yapar */
 }
 
-/* Custom link hover effects */
+/* Özel bağlantı hover (fareyle üzerine gelme) efektleri */
 .link-hover {
 	position: relative;
 }
@@ -350,18 +346,18 @@ html {
 	bottom: -2px;
 	left: 0;
 	background-color: #7c3aed;
-	transition: width 0.3s ease;
+	transition: width 0.3s ease;  /* Hover ile alt çizginin genişlemesini sağlar */
 }
 
 .link-hover:hover::after {
-	width: 100%;
+	width: 100%;  /* Hover olduğunda çizgi tamamlanır */
 }
 
-/* Image lazy loading placeholder */
+/* Görseller için tembel yükleme (lazy loading) placeholder */
 .lazy-image {
-	background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+	background: linear-gradient(45deg, #f3f4f6, #e5e7eb);  /* Yüklenmemiş görseller için arka plan efekti */
 	background-size: 400% 400%;
-	animation: gradient-loading 1.5s ease infinite;
+	animation: gradient-loading 1.5s ease infinite;  /* Görsel yüklenene kadar animasyonlu arka plan */
 }
 
 @keyframes gradient-loading {
