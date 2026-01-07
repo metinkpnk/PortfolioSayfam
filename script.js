@@ -284,56 +284,77 @@ function initializeCounters() {
 
 // İletişim formu işlevi
 function initializeContactForm() {
-    const contactForm = document.getElementById('contact-form');  // İletişim formunu seçer
+    const contactForm = document.getElementById('contact-form');
 
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();  // Formun varsayılan gönderimini engeller
+            e.preventDefault(); // Varsayılan gönderimi engelle
 
-            const formData = new FormData(this);  // Form verilerini alır
+            const formData = new FormData(this);
             const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
+            const email = formData.get('_replyto');
+            const subject = formData.get('_subject');
             const message = formData.get('message');
 
-            // Temel doğrulama işlemleri
+            // Temel doğrulama
             if (!name || !email || !subject || !message) {
-                showNotification('Please fill in all fields', 'error');  // Hata bildirimi gösterir
+                showNotification('Lütfen tüm alanları doldurun', 'error');
                 return;
             }
 
             if (!isValidEmail(email)) {
-                showNotification('Please enter a valid email address', 'error');  // Geçerli e-posta doğrulaması yapar
+                showNotification('Lütfen geçerli bir e-posta adresi girin', 'error');
                 return;
             }
 
-            // Mailto linki oluşturur
-            const mailtoLink = `mailto:contact@usama.dev?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            // Buton animasyonu
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Gönderiliyor...';
 
-            // E-posta istemcisini açar
-            window.location.href = mailtoLink;
-
-            // Başarı bildirimi gösterir
-            showNotification('Email client opened! Thank you for your message.', 'success');
-
-            // Formu sıfırlar
-            this.reset();
+            // Formspree'ye gönder
+            fetch('https://formspree.io/f/xjgknywj', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    showNotification('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağım.', 'success');
+                    contactForm.reset();
+                } else {
+                    return response.json().then(data => {
+                        if (Object.hasOwnProperty.call(data, 'errors')) {
+                            throw new Error(data["errors"].map(error => error["message"]).join(", "));
+                        } else {
+                            throw new Error('Form gönderilirken hata oluştu');
+                        }
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Hata:', error);
+                showNotification('Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.', 'error');
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalText;
+            });
         });
     }
 
-    // Geçerli e-posta adresini kontrol eden fonksiyon
     function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  // E-posta formatını kontrol eder
-        return emailRegex.test(email);  // E-posta geçerli mi kontrol eder
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
     }
 
-    // Bildirim gösterme fonksiyonu
     function showNotification(message, type) {
-        // Mevcut bildirimleri temizler
         const existingNotifications = document.querySelectorAll('.notification');
         existingNotifications.forEach(notification => notification.remove());
 
-        // Yeni bir bildirim öğesi oluşturur
         const notification = document.createElement('div');
         notification.className = `notification fixed top-4 right-4 z-50 px-6 py-4 rounded-lg shadow-lg max-w-sm transition-all duration-300 transform ${type === 'error' ? 'bg-red-600' : 'bg-green-600'} text-white`;
         notification.innerHTML = `
@@ -350,7 +371,6 @@ function initializeContactForm() {
 
         document.body.appendChild(notification);
 
-        // 5 saniye sonra bildirimi otomatik olarak kaldırır
         setTimeout(() => {
             if (notification.parentElement) {
                 notification.remove();
@@ -549,13 +569,21 @@ async function loadGitHubProjects() {
         `;
 
         // GitHub API'den kullanıcının repolarını çek
-        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
+        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`, {
+            headers: {
+                'Accept': 'application/vnd.github.v3+json'
+            }
+        });
         
         if (!response.ok) {
-            throw new Error('GitHub API hatası');
+            throw new Error(`GitHub API hatası: ${response.status}`);
         }
         
         const repos = await response.json();
+        
+        if (!repos || repos.length === 0) {
+            throw new Error('Hiç proje bulunamadı');
+        }
         
         // Projeleri HTML'e dönüştür
         const projectsHTML = repos.map(repo => {
@@ -693,9 +721,10 @@ async function loadGitHubProjects() {
         portfolioGrid.innerHTML = `
             <div class="col-span-full text-center py-12">
                 <i class="fas fa-exclamation-triangle text-4xl text-red-400 mb-4"></i>
-                <p class="text-gray-400">GitHub projeleri yüklenirken bir hata oluştu.</p>
+                <p class="text-gray-400 mb-2">GitHub projeleri yüklenirken bir hata oluştu.</p>
+                <p class="text-gray-500 text-sm mb-4">Hata: ${error.message}</p>
                 <button onclick="loadGitHubProjects()" class="mt-4 px-6 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors">
-                    Tekrar Dene
+                    <i class="fas fa-redo mr-2"></i>Tekrar Dene
                 </button>
             </div>
         `;

@@ -221,12 +221,15 @@
 
                 <!-- Hero Görseli -->
                 <div class="relative flex justify-center lg:justify-end animate-float">
-                    <div class="relative">
+                    <div class="relative profile-image-container">
+                        <!-- Profil Resmi -->
                         <div
-                            class="w-72 h-72 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary-500/30 shadow-2xl shadow-primary-500/20">
+                            class="profile-image w-72 h-72 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary-500/30 shadow-2xl shadow-primary-500/20 relative z-10">
                             <img src="images/profil.png" alt="Metin KEPENEK"
                                 class="w-full h-full object-cover" />
                         </div>
+                        
+                        <!-- Ek Dekoratif Efektler -->
                         <div
                             class="absolute -top-4 -right-4 w-24 h-24 bg-primary-600/20 rounded-full blur-xl animate-pulse">
                         </div>
@@ -275,11 +278,26 @@ Her zaman temiz, verimli ve sürdürülebilir kod yazmaya özen gösterdim. Kull
                     <div class="grid grid-cols-2 gap-4 mt-8">
                         <div class="space-y-3">
                             <div class="flex items-center space-x-3">
-                                <img src="images/c-sharp.png" alt="C# Logo" class="w-10 h-10">
-                                <img src="images\database.png" alt="C# Logo" class="w-10 h-10">
-                                <img src="images/html.png" alt="C# Logo" class="w-10 h-10">
-                                <img src="images/css-3.png" alt="C# Logo" class="w-10 h-10">
-                                <img src="images/js.png" alt="C# Logo" class="w-10 h-10">
+                                <div class="tech-logo-container">
+                                    <img src="images/c-sharp.png" alt="C# Logo" class="tech-logo">
+                                    <div class="tech-tooltip">C#</div>
+                                </div>
+                                <div class="tech-logo-container">
+                                    <img src="images/database.png" alt="Database Logo" class="tech-logo">
+                                    <div class="tech-tooltip">Database</div>
+                                </div>
+                                <div class="tech-logo-container">
+                                    <img src="images/html.png" alt="HTML Logo" class="tech-logo">
+                                    <div class="tech-tooltip">HTML</div>
+                                </div>
+                                <div class="tech-logo-container">
+                                    <img src="images/css-3.png" alt="CSS Logo" class="tech-logo">
+                                    <div class="tech-tooltip">CSS</div>
+                                </div>
+                                <div class="tech-logo-container">
+                                    <img src="images/js.png" alt="JavaScript Logo" class="tech-logo">
+                                    <div class="tech-tooltip">JavaScript</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -376,7 +394,7 @@ Her zaman temiz, verimli ve sürdürülebilir kod yazmaya özen gösterdim. Kull
             <div class="grid lg:grid-cols-2 gap-12">
                 <!-- İletişim Formu -->
                 <div class="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
-                    <form id="contact-form" class="space-y-6">
+                    <form id="contact-form" action="https://formspree.io/f/xjgknywj" method="POST" class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Ad</label>
@@ -386,14 +404,14 @@ Her zaman temiz, verimli ve sürdürülebilir kod yazmaya özen gösterdim. Kull
                             </div>
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-300 mb-2">E-posta</label>
-                                <input type="email" id="email" name="email" required
+                                <input type="email" id="email" name="_replyto" required
                                     class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
                                     placeholder="email@ornek.com" />
                             </div>
                         </div>
                         <div>
                             <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Konu</label>
-                            <input type="text" id="subject" name="subject" required
+                            <input type="text" id="subject" name="_subject" required
                                 class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
                                 placeholder="Proje Tartışması" />
                         </div>
@@ -403,7 +421,13 @@ Her zaman temiz, verimli ve sürdürülebilir kod yazmaya özen gösterdim. Kull
                                 class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none"
                                 placeholder="Projeniz hakkında bana bilgi verin..."></textarea>
                         </div>
-                        <button type="submit"
+                        
+                        <!-- Formspree için gizli alanlar -->
+                        <input type="hidden" name="_to" value="mtnkepenek@gmail.com">
+                        <input type="hidden" name="_next" value="thank-you.html">
+                        <input type="hidden" name="_captcha" value="false">
+                        
+                        <button type="submit" id="submit-btn"
                             class="w-full px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-800">
                             <i class="fas fa-paper-plane mr-2"></i>
                             Mesajı Gönder
@@ -431,7 +455,7 @@ Her zaman temiz, verimli ve sürdürülebilir kod yazmaya özen gösterdim. Kull
                         </div>
                         <div>
                             <h3 class="text-lg font-semibold text-white mb-2">E-posta</h3>
-                            <a href="mtnkepenek@gmail.com"
+                            <a href="mailto:mtnkepenek@gmail.com"
                                 class="text-gray-400 hover:text-primary-400 transition-colors">mtnkepenek@gmail.com</a>
                         </div>
                     </div>
@@ -475,12 +499,11 @@ Her zaman temiz, verimli ve sürdürülebilir kod yazmaya özen gösterdim. Kull
                                 class="w-10 h-10 bg-gray-700 hover:bg-primary-600 rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110">
                                 <i class="fab fa-x-twitter"></i>
                             </a>
-                            
                             <a href="https://www.instagram.com/metin_kpnk/" target="_blank"
                                 class="w-10 h-10 bg-gray-700 hover:bg-primary-600 rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                                 <a href="https://www.facebook.com/metin.kepenek.79" target="_blank"
+                            <a href="https://www.facebook.com/metin.kepenek.79" target="_blank"
                                 class="w-10 h-10 bg-gray-700 hover:bg-primary-600 rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110">
                                 <i class="fab fa-facebook"></i>
                             </a>
@@ -488,7 +511,7 @@ Her zaman temiz, verimli ve sürdürülebilir kod yazmaya özen gösterdim. Kull
                                 class="w-10 h-10 bg-gray-700 hover:bg-primary-600 rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110 font-bold text-lg">
                                 CV
                             </a> 
-                 <!--  -->       </div>
+                        </div>
                     </div>
                 </div>
             </div>

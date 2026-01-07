@@ -621,3 +621,229 @@ html {
 		display: none;
 	}
 }
+
+/* Teknoloji Logoları Efektleri */
+.tech-logo-container {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.tech-logo {
+	width: 2.5rem;
+	height: 2.5rem;
+	filter: grayscale(100%) brightness(0.8);
+	transition: all 0.3s ease;
+	border-radius: 6px;
+	padding: 4px;
+	background: rgba(124, 58, 237, 0.1);
+	border: 1px solid transparent;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	object-fit: contain;
+}
+
+.tech-logo:hover {
+	filter: grayscale(0%) brightness(1.1);
+	border-color: rgba(124, 58, 237, 0.5);
+	box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+	background: rgba(124, 58, 237, 0.2);
+	transform: scale(1.1) rotate(3deg);
+}
+
+/* Tooltip Efekti */
+.tech-tooltip {
+	position: absolute;
+	bottom: -25px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: rgba(0, 0, 0, 0.9);
+	color: white;
+	padding: 2px 6px;
+	border-radius: 4px;
+	font-size: 0.7rem;
+	font-weight: 500;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease;
+	white-space: nowrap;
+	z-index: 10;
+}
+
+.tech-tooltip::before {
+	content: "";
+	position: absolute;
+	top: -3px;
+	left: 50%;
+	transform: translateX(-50%);
+	border-left: 3px solid transparent;
+	border-right: 3px solid transparent;
+	border-bottom: 3px solid rgba(0, 0, 0, 0.9);
+}
+
+.tech-logo-container:hover .tech-tooltip {
+	opacity: 1;
+	visibility: visible;
+	bottom: -30px;
+}
+
+/* Hafif Floating Animasyonu */
+@keyframes tech-float-light {
+	0%, 100% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(-2px);
+	}
+}
+
+.tech-logo-container:nth-child(1) .tech-logo {
+	animation: tech-float-light 3s ease-in-out infinite;
+	animation-delay: 0s;
+}
+
+.tech-logo-container:nth-child(2) .tech-logo {
+	animation: tech-float-light 3s ease-in-out infinite;
+	animation-delay: 0.6s;
+}
+
+.tech-logo-container:nth-child(3) .tech-logo {
+	animation: tech-float-light 3s ease-in-out infinite;
+	animation-delay: 1.2s;
+}
+
+.tech-logo-container:nth-child(4) .tech-logo {
+	animation: tech-float-light 3s ease-in-out infinite;
+	animation-delay: 1.8s;
+}
+
+.tech-logo-container:nth-child(5) .tech-logo {
+	animation: tech-float-light 3s ease-in-out infinite;
+	animation-delay: 2.4s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.tech-logo {
+		width: 2rem;
+		height: 2rem;
+		padding: 3px;
+	}
+	
+	.tech-tooltip {
+		font-size: 0.6rem;
+		padding: 2px 4px;
+	}
+}
+
+/* Profil Resmi Dönen Işık Efekti */
+.profile-image-container {
+	position: relative;
+}
+
+.profile-image {
+	position: relative;
+}
+
+.profile-image::before {
+	content: '';
+	position: absolute;
+	top: -8px;
+	left: -8px;
+	right: -8px;
+	bottom: -8px;
+	border-radius: 50%;
+	background: linear-gradient(45deg, 
+		transparent, 
+		rgba(124, 58, 237, 0.8), 
+		transparent, 
+		rgba(168, 85, 247, 0.8), 
+		transparent, 
+		rgba(124, 58, 237, 0.8), 
+		transparent
+	);
+	animation: spin 3s linear infinite;
+	z-index: -1;
+}
+
+.profile-image::after {
+	content: '';
+	position: absolute;
+	top: -12px;
+	left: -12px;
+	right: -12px;
+	bottom: -12px;
+	border-radius: 50%;
+	background: linear-gradient(-45deg, 
+		transparent, 
+		rgba(168, 85, 247, 0.4), 
+		transparent, 
+		rgba(196, 181, 253, 0.6), 
+		transparent, 
+		rgba(168, 85, 247, 0.4), 
+		transparent
+	);
+	animation: spin-reverse 4s linear infinite;
+	z-index: -2;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes spin-reverse {
+	0% {
+		transform: rotate(360deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+/* Hover Efekti */
+.profile-image:hover::before {
+	animation-duration: 1s;
+	background: linear-gradient(45deg, 
+		transparent, 
+		rgba(124, 58, 237, 1), 
+		transparent, 
+		rgba(168, 85, 247, 1), 
+		transparent, 
+		rgba(124, 58, 237, 1), 
+		transparent
+	);
+}
+
+.profile-image:hover::after {
+	animation-duration: 1.5s;
+	background: linear-gradient(-45deg, 
+		transparent, 
+		rgba(168, 85, 247, 0.8), 
+		transparent, 
+		rgba(196, 181, 253, 1), 
+		transparent, 
+		rgba(168, 85, 247, 0.8), 
+		transparent
+	);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.profile-image::before {
+		top: -4px;
+		left: -4px;
+		right: -4px;
+		bottom: -4px;
+	}
+	
+	.profile-image::after {
+		top: -6px;
+		left: -6px;
+		right: -6px;
+		bottom: -6px;
+	}
+}
