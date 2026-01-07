@@ -327,70 +327,35 @@ Her zaman temiz, verimli ve sürdürülebilir kod yazmaya özen gösterdim. Kull
 
             <!-- Portföy Filtrele -->
             <div class="flex flex-wrap justify-center mb-12 space-x-2 space-y-2">
-                <button class="portfolio-filter active px-6 py-2 rounded-full bg-primary-600 text-white font-medium"
+                <button class="portfolio-filter active px-6 py-2 rounded-full bg-primary-600 text-white font-medium transition-all duration-300 hover:scale-105"
                     data-filter="all">
-                    Hepsi
+                    <i class="fas fa-th mr-2"></i>Hepsi
                 </button>
-                <button
-                    class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700 font-medium transition-colors"
-                    data-filter="mobile">
-                    Mobil
-                </button>
-                <button
-                    class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700 font-medium transition-colors"
+                <button class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 font-medium transition-all duration-300 hover:scale-105 hover:bg-blue-600 hover:text-white"
                     data-filter="web">
-                    Web
+                    <i class="fas fa-globe mr-2"></i>Web
                 </button>
-                <button
-                    class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700 font-medium transition-colors"
-                    data-filter="ai">
-                    AI
+                <button class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 font-medium transition-all duration-300 hover:scale-105 hover:bg-green-600 hover:text-white"
+                    data-filter="desktop">
+                    <i class="fas fa-desktop mr-2"></i>Desktop
+                </button>
+                <button class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 font-medium transition-all duration-300 hover:scale-105 hover:bg-purple-600 hover:text-white"
+                    data-filter="mobile">
+                    <i class="fas fa-mobile-alt mr-2"></i>Mobil
+                </button>
+                <button class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 font-medium transition-all duration-300 hover:scale-105 hover:bg-red-600 hover:text-white"
+                    data-filter="api">
+                    <i class="fas fa-server mr-2"></i>API/Backend
+                </button>
+                <button class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 font-medium transition-all duration-300 hover:scale-105 hover:bg-orange-600 hover:text-white"
+                    data-filter="other">
+                    <i class="fas fa-code mr-2"></i>Diğer
                 </button>
             </div>
 
             <!-- Portföy Grid -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Proje Örneği -->
-                <div class="portfolio-item group relative bg-gray-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300"
-                    data-category="mobile web">
-                    <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1481437156560-3205f6a55735?w=400&h=300&fit=crop"
-                            alt="OpenListings"
-                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        </div>
-                        <div
-                            class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div class="flex space-x-3">
-                                <a href="https://play.google.com/store/apps/details?id=dev.usama.openlistings" target="_blank"
-                                    class="flex items-center justify-center w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors">
-                                    <i class="fab fa-google-play"></i>
-                                </a>
-                                <a href="https://openlistings.org" target="_blank"
-                                    class="flex items-center justify-center w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center space-x-2 mb-2">
-                            <span class="px-2 py-1 bg-primary-600/20 text-primary-300 rounded text-xs font-medium">Mobil</span>
-                            <span class="px-2 py-1 bg-blue-600/20 text-blue-300 rounded text-xs font-medium">İş</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white">OpenListings » Satın Al & Sat</h3>
-                        <p class="text-gray-400 mb-4">
-                            Topluluk tarafından yönlendirilen bir pazar platformu. Ürünleri, hizmetleri ve fırsatları listelemek, keşfetmek ve bağlantı kurmak için tamamen ücretsizdir.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Flutter</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Dart</span>
-                            <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">Firebase</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Diğer projeler için aynı yapı devam eder... -->
+                <!-- GitHub projeler buraya yüklenecek -->
             </div>
         </div>
     </section>
@@ -523,7 +488,7 @@ Her zaman temiz, verimli ve sürdürülebilir kod yazmaya özen gösterdim. Kull
                                 class="w-10 h-10 bg-gray-700 hover:bg-primary-600 rounded-lg flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110 font-bold text-lg">
                                 CV
                             </a> 
-                        </div>
+                 <!--  -->       </div>
                     </div>
                 </div>
             </div>
