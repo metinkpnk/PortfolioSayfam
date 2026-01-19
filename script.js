@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeScrollToTop();  // Sayfayı yukarı kaydırma butonunu başlatır
     addAccessibilityFeatures();  // Erişilebilirlik özelliklerini ekler
     loadGitHubProjects();  // GitHub projelerini yükler
+    initializeParticles();  // Parçacık efektini başlatır
+    initializeScrollProgress();  // Scroll progress indicator'ı başlatır
 });
 
 // Navigasyon işlevselliği
@@ -552,13 +554,13 @@ window.PortfolioApp = {
     initializeCounters
 };
 
-// GitHub API'den projeleri çekme fonksiyonu
+// GitHub API'den projeleri çekme fonksiyonu - Tüm projeler için güncellenmiş
 async function loadGitHubProjects() {
-    const username = 'metinkpnk';  // GitHub kullanıcı adınız
+    const username = 'metinkpnk';
     const portfolioGrid = document.querySelector('#portfolio .grid');
     
     try {
-        // Loading göstergesi ekle
+        // Loading göstergesi
         portfolioGrid.innerHTML = `
             <div class="col-span-full flex justify-center items-center py-12">
                 <div class="text-center">
@@ -568,152 +570,82 @@ async function loadGitHubProjects() {
             </div>
         `;
 
-        // GitHub API'den kullanıcının repolarını çek
-        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`, {
-            headers: {
-                'Accept': 'application/vnd.github.v3+json'
-            }
+        // Tüm projeleri çek (100 proje limiti)
+        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`, {
+            headers: { 'Accept': 'application/vnd.github.v3+json' }
         });
         
-        if (!response.ok) {
-            throw new Error(`GitHub API hatası: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`GitHub API hatası: ${response.status}`);
         
         const repos = await response.json();
-        
-        if (!repos || repos.length === 0) {
-            throw new Error('Hiç proje bulunamadı');
-        }
+        if (!repos || repos.length === 0) throw new Error('Hiç proje bulunamadı');
+
+        // Fork olmayan projeleri filtrele
+        const filteredRepos = repos.filter(repo => !repo.fork && !repo.private);
         
         // Projeleri HTML'e dönüştür
-        const projectsHTML = repos.map(repo => {
-            // Proje kategorisini belirle
+        const projectsHTML = filteredRepos.map(repo => {
             const language = repo.language?.toLowerCase() || 'other';
             const topics = repo.topics || [];
-            let category = 'other';
-            let categoryLabel = 'Diğer';
-            let categoryColor = 'orange';
+            let category = 'other', categoryLabel = 'Diğer';
             
-            // Daha detaylı kategori belirleme
-            if (language.includes('javascript') || language.includes('typescript') || 
-                language.includes('html') || language.includes('css') || 
-                topics.some(topic => ['react', 'vue', 'angular', 'web', 'frontend'].includes(topic.toLowerCase()))) {
-                category = 'web';
-                categoryLabel = 'Web';
-                categoryColor = 'blue';
-            } else if (language.includes('python') || language.includes('java') || 
-                      language.includes('c#') || language.includes('c++') || language.includes('c') ||
-                      topics.some(topic => ['desktop', 'gui', 'windows', 'forms'].includes(topic.toLowerCase()))) {
-                category = 'desktop';
-                categoryLabel = 'Desktop';
-                categoryColor = 'green';
-            } else if (language.includes('flutter') || language.includes('dart') || 
-                      language.includes('swift') || language.includes('kotlin') ||
-                      topics.some(topic => ['mobile', 'android', 'ios', 'app'].includes(topic.toLowerCase()))) {
-                category = 'mobile';
-                categoryLabel = 'Mobil';
-                categoryColor = 'purple';
-            } else if (language.includes('php') || language.includes('node') || 
-                      topics.some(topic => ['api', 'backend', 'server', 'rest', 'graphql'].includes(topic.toLowerCase()))) {
-                category = 'api';
-                categoryLabel = 'API/Backend';
-                categoryColor = 'red';
+            if (language.includes('javascript') || language.includes('html') || language.includes('css') || 
+                topics.some(t => ['web', 'frontend', 'react', 'vue'].includes(t.toLowerCase()))) {
+                category = 'web'; categoryLabel = 'Web';
+            } else if (language.includes('c#') || language.includes('python') || language.includes('java') ||
+                      topics.some(t => ['desktop', 'gui', 'windows'].includes(t.toLowerCase()))) {
+                category = 'desktop'; categoryLabel = 'Desktop';
+            } else if (topics.some(t => ['mobile', 'android', 'ios'].includes(t.toLowerCase()))) {
+                category = 'mobile'; categoryLabel = 'Mobil';
+            } else if (topics.some(t => ['api', 'backend', 'server'].includes(t.toLowerCase()))) {
+                category = 'api'; categoryLabel = 'API/Backend';
             }
 
-            // Teknoloji etiketleri
-            const techTags = [];
-            if (repo.language) techTags.push(repo.language);
-            if (repo.topics && repo.topics.length > 0) {
-                techTags.push(...repo.topics.slice(0, 3));
-            }
-
-            // Rastgele gradient renkleri için ek varyasyonlar
-            const gradientVariations = {
-                'web': [
-                    'from-blue-600 via-blue-500 to-cyan-400',
-                    'from-indigo-600 via-blue-500 to-teal-400',
-                    'from-sky-600 via-blue-500 to-indigo-400'
-                ],
-                'desktop': [
-                    'from-green-600 via-emerald-500 to-teal-400',
-                    'from-lime-600 via-green-500 to-emerald-400',
-                    'from-teal-600 via-green-500 to-cyan-400'
-                ],
-                'mobile': [
-                    'from-purple-600 via-violet-500 to-pink-400',
-                    'from-indigo-600 via-purple-500 to-pink-400',
-                    'from-violet-600 via-purple-500 to-fuchsia-400'
-                ],
-                'api': [
-                    'from-red-600 via-rose-500 to-pink-400',
-                    'from-orange-600 via-red-500 to-rose-400',
-                    'from-rose-600 via-red-500 to-orange-400'
-                ],
-                'other': [
-                    'from-orange-600 via-amber-500 to-yellow-400',
-                    'from-yellow-600 via-orange-500 to-red-400',
-                    'from-amber-600 via-orange-500 to-rose-400'
-                ]
+            const gradients = {
+                'web': 'from-blue-600 via-blue-500 to-cyan-400',
+                'desktop': 'from-green-600 via-emerald-500 to-teal-400',
+                'mobile': 'from-purple-600 via-violet-500 to-pink-400',
+                'api': 'from-red-600 via-rose-500 to-pink-400',
+                'other': 'from-orange-600 via-amber-500 to-yellow-400'
             };
 
-            const randomGradient = gradientVariations[category][Math.floor(Math.random() * gradientVariations[category].length)];
+            const techTags = [repo.language, ...topics.slice(0, 2)].filter(Boolean);
 
             return `
-                <div class="portfolio-item group relative bg-gradient-to-br ${randomGradient} rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-500 shadow-lg hover:shadow-2xl"
-                    data-category="${category}">
+                <div class="portfolio-item group relative bg-gradient-to-br ${gradients[category]} rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-500 shadow-lg hover:shadow-2xl advanced-card" data-category="${category}">
                     <div class="relative overflow-hidden">
-                        <div class="w-full h-48 bg-black/20 backdrop-blur-sm flex items-center justify-center relative">
-                            <i class="fab fa-github text-6xl text-white/80 group-hover:text-white transition-all duration-300"></i>
+                        <div class="w-full h-32 bg-black/20 backdrop-blur-sm flex items-center justify-center relative">
+                            <i class="fab fa-github text-4xl text-white/80 group-hover:text-white transition-all duration-300"></i>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                         </div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        </div>
-                        <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                            <div class="flex space-x-3">
-                                <a href="${repo.html_url}" target="_blank"
-                                    class="flex items-center justify-center w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-300 hover:scale-110">
-                                    <i class="fab fa-github text-lg"></i>
+                        <div class="absolute bottom-2 left-2 right-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <div class="flex space-x-2 justify-center">
+                                <a href="${repo.html_url}" target="_blank" class="flex items-center justify-center w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-300">
+                                    <i class="fab fa-github text-sm"></i>
                                 </a>
-                                ${repo.homepage ? `
-                                    <a href="${repo.homepage}" target="_blank"
-                                        class="flex items-center justify-center w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-300 hover:scale-110">
-                                        <i class="fas fa-external-link-alt text-lg"></i>
-                                    </a>
-                                ` : ''}
+                                ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="flex items-center justify-center w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-300"><i class="fas fa-external-link-alt text-sm"></i></a>` : ''}
                             </div>
                         </div>
                     </div>
-                    <div class="p-6 bg-black/20 backdrop-blur-sm">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium backdrop-blur-sm">${categoryLabel}</span>
-                            ${repo.stargazers_count > 0 ? `<span class="px-3 py-1 bg-yellow-500/20 text-yellow-200 rounded-full text-sm font-medium backdrop-blur-sm flex items-center"><i class="fas fa-star mr-1"></i> ${repo.stargazers_count}</span>` : ''}
+                    <div class="p-4 bg-black/20 backdrop-blur-sm">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="px-2 py-1 bg-white/20 text-white rounded-full text-xs font-medium">${categoryLabel}</span>
+                            ${repo.stargazers_count > 0 ? `<span class="px-2 py-1 bg-yellow-500/20 text-yellow-200 rounded-full text-xs flex items-center"><i class="fas fa-star mr-1"></i>${repo.stargazers_count}</span>` : ''}
                         </div>
-                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-yellow-200 transition-colors duration-300">${repo.name}</h3>
-                        <p class="text-white/80 mb-4 line-clamp-3 text-sm leading-relaxed">
-                            ${repo.description || 'Bu proje için henüz açıklama eklenmemiş.'}
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            ${techTags.map(tech => `
-                                <span class="px-3 py-1 bg-white/10 text-white/90 rounded-full text-xs font-medium backdrop-blur-sm border border-white/20">${tech}</span>
-                            `).join('')}
+                        <h3 class="text-lg font-bold mb-2 text-white line-clamp-1">${repo.name}</h3>
+                        <p class="text-white/80 mb-3 line-clamp-2 text-sm">${repo.description || 'Açıklama eklenmemiş.'}</p>
+                        <div class="flex flex-wrap gap-1 mb-2">
+                            ${techTags.slice(0, 3).map(tech => `<span class="px-2 py-1 bg-white/10 text-white/90 rounded-full text-xs border border-white/20">${tech}</span>`).join('')}
                         </div>
-                        ${repo.updated_at ? `
-                            <div class="mt-4 pt-3 border-t border-white/20">
-                                <span class="text-white/60 text-xs">
-                                    <i class="fas fa-clock mr-1"></i>
-                                    ${new Date(repo.updated_at).toLocaleDateString('tr-TR')} tarihinde güncellendi
-                                </span>
-                            </div>
-                        ` : ''}
+                        <div class="pt-2 border-t border-white/20">
+                            <span class="text-white/60 text-xs"><i class="fas fa-clock mr-1"></i>${new Date(repo.updated_at).toLocaleDateString('tr-TR')}</span>
+                        </div>
                     </div>
                 </div>
             `;
         }).join('');
         
-        // Projeleri sayfaya ekle
         portfolioGrid.innerHTML = projectsHTML;
-        
-        // Filtreleme fonksiyonunu yeniden başlat
         initializePortfolioFilter();
         
     } catch (error) {
@@ -721,9 +653,9 @@ async function loadGitHubProjects() {
         portfolioGrid.innerHTML = `
             <div class="col-span-full text-center py-12">
                 <i class="fas fa-exclamation-triangle text-4xl text-red-400 mb-4"></i>
-                <p class="text-gray-400 mb-2">GitHub projeleri yüklenirken bir hata oluştu.</p>
+                <p class="text-gray-400 mb-2">GitHub projeleri yüklenirken hata oluştu.</p>
                 <p class="text-gray-500 text-sm mb-4">Hata: ${error.message}</p>
-                <button onclick="loadGitHubProjects()" class="mt-4 px-6 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors">
+                <button onclick="loadGitHubProjects()" class="px-6 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors">
                     <i class="fas fa-redo mr-2"></i>Tekrar Dene
                 </button>
             </div>
@@ -731,20 +663,115 @@ async function loadGitHubProjects() {
     }
 }
 
-// Sayfa yüklendiğinde "kepenek" öğesindeki metni harf harf gösterir
-window.onload = function() {
-    const kepenek = document.getElementById('kepenek');
-    const text = kepenek.textContent;  // Metni alır
-    kepenek.textContent = '';  // Mevcut metni siler
+// Gelişmiş typing animasyonu
+function initializeTypingAnimation() {
+    const kepenekelements = document.querySelectorAll('#kepenek');
+    
+    kepenekelements.forEach((element, index) => {
+        const text = element.textContent;
+        element.textContent = '';
+        element.style.borderRight = '2px solid #7c3aed';
+        element.style.animation = 'blink 1s infinite';
+        
+        let charIndex = 0;
+        const typeInterval = setInterval(() => {
+            element.textContent += text[charIndex];
+            charIndex++;
+            
+            if (charIndex === text.length) {
+                clearInterval(typeInterval);
+                setTimeout(() => {
+                    element.style.borderRight = 'none';
+                    element.style.animation = 'none';
+                }, 1000);
+            }
+        }, 150 + (index * 50)); // Her element için farklı hız
+    });
+}
 
-    let index = 0;
-    const interval = setInterval(() => {
-        kepenek.textContent += text[index];  // Bir harf ekler
-        index++;
-        if (index === text.length) {
-            clearInterval(interval);  // Tüm harfler gösterildikten sonra durdurur
+// Parçacık efekti
+function initializeParticles() {
+    const container = document.getElementById('particles-container');
+    if (!container) return;
+
+    const particleCount = 50;
+    const particles = [];
+
+    // Parçacık sınıfı
+    class Particle {
+        constructor() {
+            this.x = Math.random() * window.innerWidth;
+            this.y = Math.random() * window.innerHeight;
+            this.size = Math.random() * 3 + 1;
+            this.speedX = (Math.random() - 0.5) * 2;
+            this.speedY = (Math.random() - 0.5) * 2;
+            this.opacity = Math.random() * 0.5 + 0.2;
+            
+            this.element = document.createElement('div');
+            this.element.style.position = 'absolute';
+            this.element.style.width = this.size + 'px';
+            this.element.style.height = this.size + 'px';
+            this.element.style.background = `rgba(124, 58, 237, ${this.opacity})`;
+            this.element.style.borderRadius = '50%';
+            this.element.style.pointerEvents = 'none';
+            this.element.style.boxShadow = `0 0 ${this.size * 2}px rgba(124, 58, 237, 0.5)`;
+            
+            container.appendChild(this.element);
         }
-    }, 100);  // Harfler arasındaki gecikmeyi belirler
+
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+
+            // Sınırları kontrol et
+            if (this.x < 0 || this.x > window.innerWidth) this.speedX *= -1;
+            if (this.y < 0 || this.y > window.innerHeight) this.speedY *= -1;
+
+            // Pozisyonu güncelle
+            this.element.style.left = this.x + 'px';
+            this.element.style.top = this.y + 'px';
+        }
+    }
+
+    // Parçacıkları oluştur
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
+
+    // Animasyon döngüsü
+    function animate() {
+        particles.forEach(particle => particle.update());
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // Pencere boyutu değiştiğinde parçacıkları yeniden konumlandır
+    window.addEventListener('resize', () => {
+        particles.forEach(particle => {
+            if (particle.x > window.innerWidth) particle.x = window.innerWidth;
+            if (particle.y > window.innerHeight) particle.y = window.innerHeight;
+        });
+    });
+}
+
+// Scroll progress indicator
+function initializeScrollProgress() {
+    const progressBar = document.getElementById('scroll-progress');
+    if (!progressBar) return;
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        
+        progressBar.style.width = scrollPercent + '%';
+    });
+}
+
+// Sayfa yüklendiğinde typing animasyonunu başlat
+window.onload = function() {
+    initializeTypingAnimation();
 };
 
 

@@ -7,11 +7,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Temel SEO Meta Etiketleri -->
-    <title>Metin KEPENEK - Yazılım Geliştirici</title>
+    <title>Metin KEPENEK - Yazılım Geliştirici | Portfolio</title>
+    <meta name="description" content="Metin KEPENEK - Profesyonel yazılım geliştirici. C#, Windows Forms, Entity Framework, HTML, CSS, JavaScript ile modern web ve masaüstü uygulamaları geliştiriyorum." />
+    <meta name="keywords" content="Metin KEPENEK, yazılım geliştirici, C#, Windows Forms, Entity Framework, HTML, CSS, JavaScript, web geliştirme, masaüstü uygulamaları" />
+    <meta name="author" content="Metin KEPENEK" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph Meta Etiketleri -->
+    <meta property="og:title" content="Metin KEPENEK - Yazılım Geliştirici" />
+    <meta property="og:description" content="Profesyonel yazılım geliştirici. C#, Windows Forms, Entity Framework, HTML, CSS, JavaScript ile modern web ve masaüstü uygulamaları geliştiriyorum." />
+    <meta property="og:url" content="https://metinkpnk.netlify.app" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://metinkpnk.netlify.app/images/profil.png" />
+    <meta property="og:site_name" content="Metin KEPENEK Portfolio" />
+    
+    <!-- Twitter Card Meta Etiketleri -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Metin KEPENEK - Yazılım Geliştirici" />
+    <meta name="twitter:description" content="Profesyonel yazılım geliştirici. C#, Windows Forms, Entity Framework, HTML, CSS, JavaScript ile modern web ve masaüstü uygulamaları geliştiriyorum." />
+    <meta name="twitter:image" content="https://metinkpnk.netlify.app/images/profil.png" />
+    <meta name="twitter:site" content="@mtnkepenek" />
 
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://github.com/metinkpnk" />
+    <link rel="canonical" href="https://metinkpnk.netlify.app" />
     <!-- Tema ve Uygulama Meta Etiketleri -->
     <meta name="theme-color" content="#7c3aed" />
     <meta name="msapplication-TileColor" content="#7c3aed" />
@@ -87,10 +106,26 @@
         };
     </script>
 
+    <!-- Google Analytics (Kendi tracking ID'nizi ekleyin) -->
+    <!-- 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_TRACKING_ID');
+    </script>
+    -->
+
     
 </head>
 
 <body class="bg-gray-900 text-white font-inter antialiased dark">
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-indicator-bar" id="scroll-progress"></div>
+    </div>
+
     <!-- Navigasyon -->
     <nav id="navbar"
         class="fixed top-0 w-full z-50 transition-all duration-300 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
@@ -158,13 +193,16 @@
                 style="animation-delay: 2s"></div>
         </div>
 
+        <!-- Parçacık Efekti -->
+        <div id="particles-container" class="absolute inset-0 pointer-events-none"></div>
+
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Hero İçeriği -->
                 <div class="text-center lg:text-left animate-fade-in">
                     <div class="mb-6">
                         <span
-                            class="inline-block px-4 py-2 bg-primary-600/20 text-primary-300 rounded-full text-sm font-medium mb-4 animate-slide-up">
+                            class="inline-block px-4 py-2 bg-primary-600/20 text-primary-300 rounded-full text-sm font-medium mb-4 animate-slide-up enhanced-hover">
                             <i class="fas fa-rocket mr-2"></i>
                             Projeler İçin Uygun
                         </span>
@@ -172,7 +210,7 @@
                             Metin
                             <span id="kepenek" class="bg-gradient-to-r from-primary-400 to-purple-400 bg-clip-text text-transparent">KEPENEK</span>
                         </h1>
-                        <p id="kepenek" class="text-xl sm:text-2xl text-gray-300 mb-4">Yazılım Geliştirici</p>
+                        <p id="kepenek" class="text-xl sm:text-2xl text-gray-300 mb-4 animated-gradient bg-clip-text text-transparent">Yazılım Geliştirici</p>
                         <p class="text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0">
                             C#, Windows Forms ve Entity Framework ile masaüstü uygulamaları geliştirme deneyimim bulunuyor. Ayrıca, HTML, CSS ve JavaScript gibi web teknolojilerine hâkimim. Pek çok farklı projede yer aldım ve her zaman temiz, verimli, kullanıcı odaklı ve ölçeklenebilir yazılım çözümleri geliştirmeye özen gösteriyorum.
                         </p>
@@ -181,11 +219,11 @@
                     <!-- CTA Butonları -->
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
                         <a href="#portfolio"
-                            class="px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-primary-500/25">
+                            class="px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-primary-500/25 enhanced-hover">
                             <i class="fas fa-folder-open mr-2"></i>Portföyü Görüntüle
                         </a>
                         <a href="#contact"
-                            class="px-8 py-3 border-2 border-primary-600 text-primary-400 hover:bg-primary-600 hover:text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105">
+                            class="px-8 py-3 border-2 border-primary-600 text-primary-400 hover:bg-primary-600 hover:text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 enhanced-hover">
                             <i class="fas fa-envelope mr-2"></i>İletişime Geç
                         </a>
                     </div>
@@ -193,27 +231,27 @@
                     <!-- Sosyal Bağlantılar -->
                     <div class="flex justify-center lg:justify-start space-x-6">
                         <a href="https://github.com/metinkpnk" target="_blank"
-                            class="text-gray-400 hover:text-white transition-colors transform hover:scale-110">
+                            class="text-gray-400 hover:text-white transition-colors transform hover:scale-110 enhanced-hover">
                             <i class="fab fa-github text-2xl"></i>
                         </a>
                         <a href="https://www.linkedin.com/in/metin-kepenek-ba768922a/" target="_blank"
-                            class="text-gray-400 hover:text-white transition-colors transform hover:scale-110">
+                            class="text-gray-400 hover:text-white transition-colors transform hover:scale-110 enhanced-hover">
                             <i class="fab fa-linkedin text-2xl"></i>
                         </a>
                         <a href="https://www.instagram.com/metin_kpnk/" target="_blank"
-                            class="text-gray-400 hover:text-white transition-colors transform hover:scale-110">
+                            class="text-gray-400 hover:text-white transition-colors transform hover:scale-110 enhanced-hover">
                             <i class="fab fa-instagram text-2xl"></i>
                         </a>
                         <a href="https://www.facebook.com/metin.kepenek.79" target="_blank"
-                            class="text-gray-400 hover:text-white transition-colors transform hover:scale-110">
+                            class="text-gray-400 hover:text-white transition-colors transform hover:scale-110 enhanced-hover">
                             <i class="fab fa-facebook text-2xl"></i>
                         </a>
                         <a href="https://x.com/mtnkepenek" target="_blank"
-                            class="text-gray-400 hover:text-white transition-colors transform hover:scale-110">
+                            class="text-gray-400 hover:text-white transition-colors transform hover:scale-110 enhanced-hover">
                             <i class="fab fa-x-twitter text-2xl"></i>
                         </a>
                         <a href="https://metinkpnk.github.io/CV/" target="_blank" title="CV"
-                            class="text-gray-400 hover:text-white transition-colors transform hover:scale-110 font-bold text-2xl">
+                            class="text-gray-400 hover:text-white transition-colors transform hover:scale-110 font-bold text-2xl enhanced-hover">
                             CV
                         </a>   
                     </div>
@@ -224,8 +262,8 @@
                     <div class="relative profile-image-container">
                         <!-- Profil Resmi -->
                         <div
-                            class="profile-image w-72 h-72 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary-500/30 shadow-2xl shadow-primary-500/20 relative z-10">
-                            <img src="images/profil.png" alt="Metin KEPENEK"
+                            class="profile-image w-72 h-72 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary-500/30 shadow-2xl shadow-primary-500/20 relative z-10 advanced-card">
+                            <img src="images/profil.png" alt="Metin KEPENEK" loading="lazy"
                                 class="w-full h-full object-cover" />
                         </div>
                         
@@ -242,7 +280,7 @@
 
         <!-- Scroll Gösterge -->
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
-            <a href="#about" class="text-gray-400 hover:text-white transition-colors">
+            <a href="#about" class="text-gray-400 hover:text-white transition-colors enhanced-hover">
                 <i class="fas fa-chevron-down text-2xl"></i>
             </a>
         </div>
@@ -306,22 +344,22 @@ Her zaman temiz, verimli ve sürdürülebilir kod yazmaya özen gösterdim. Kull
                 <!-- İstatistikler -->
                 <div class="grid grid-cols-2 gap-6">
                     <div
-                        class="text-center p-6 bg-gray-800/80 rounded-xl backdrop-blur-sm border border-gray-700 hover:border-primary-500/50 transition-all duration-300 transform hover:scale-105">
+                        class="text-center p-6 bg-gray-800/80 rounded-xl backdrop-blur-sm border border-gray-700 hover:border-primary-500/50 transition-all duration-300 transform hover:scale-105 advanced-card">
                         <div class="text-3xl font-bold text-primary-400 mb-2" data-count="1247">0</div>
                         <div class="text-gray-400">Mega Projeler</div>
                     </div>
                     <div
-                        class="text-center p-6 bg-gray-800/80 rounded-xl backdrop-blur-sm border border-gray-700 hover:border-primary-500/50 transition-all duration-300 transform hover:scale-105">
+                        class="text-center p-6 bg-gray-800/80 rounded-xl backdrop-blur-sm border border-gray-700 hover:border-primary-500/50 transition-all duration-300 transform hover:scale-105 advanced-card">
                         <div class="text-3xl font-bold text-primary-400 mb-2" data-count="11">0</div>
                         <div class="text-gray-400">Yıl Deneyim</div>
                     </div>
                     <div
-                        class="text-center p-6 bg-gray-800/80 rounded-xl backdrop-blur-sm border border-gray-700 hover:border-primary-500/50 transition-all duration-300 transform hover:scale-105">
+                        class="text-center p-6 bg-gray-800/80 rounded-xl backdrop-blur-sm border border-gray-700 hover:border-primary-500/50 transition-all duration-300 transform hover:scale-105 advanced-card">
                         <div class="text-3xl font-bold text-primary-400 mb-2" data-count="2743">0</div>
                         <div class="text-gray-400">Mutlu Müşteriler</div>
                     </div>
                     <div
-                        class="text-center p-6 bg-gray-800/80 rounded-xl backdrop-blur-sm border border-gray-700 hover:border-primary-500/50 transition-all duration-300 transform hover:scale-105">
+                        class="text-center p-6 bg-gray-800/80 rounded-xl backdrop-blur-sm border border-gray-700 hover:border-primary-500/50 transition-all duration-300 transform hover:scale-105 advanced-card">
                         <div class="text-3xl font-bold text-primary-400 mb-2" data-count="204">0</div>
                         <div class="text-gray-400">GitHub Yıldızları</div>
                     </div>
@@ -345,35 +383,45 @@ Her zaman temiz, verimli ve sürdürülebilir kod yazmaya özen gösterdim. Kull
 
             <!-- Portföy Filtrele -->
             <div class="flex flex-wrap justify-center mb-12 space-x-2 space-y-2">
-                <button class="portfolio-filter active px-6 py-2 rounded-full bg-primary-600 text-white font-medium transition-all duration-300 hover:scale-105"
+                <button class="portfolio-filter active px-6 py-2 rounded-full bg-primary-600 text-white font-medium transition-all duration-300 hover:scale-105 enhanced-hover"
                     data-filter="all">
                     <i class="fas fa-th mr-2"></i>Hepsi
                 </button>
-                <button class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 font-medium transition-all duration-300 hover:scale-105 hover:bg-blue-600 hover:text-white"
+                <button class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 font-medium transition-all duration-300 hover:scale-105 hover:bg-blue-600 hover:text-white enhanced-hover"
                     data-filter="web">
                     <i class="fas fa-globe mr-2"></i>Web
                 </button>
-                <button class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 font-medium transition-all duration-300 hover:scale-105 hover:bg-green-600 hover:text-white"
+                <button class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 font-medium transition-all duration-300 hover:scale-105 hover:bg-green-600 hover:text-white enhanced-hover"
                     data-filter="desktop">
                     <i class="fas fa-desktop mr-2"></i>Desktop
                 </button>
-                <button class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 font-medium transition-all duration-300 hover:scale-105 hover:bg-purple-600 hover:text-white"
+                <button class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 font-medium transition-all duration-300 hover:scale-105 hover:bg-purple-600 hover:text-white enhanced-hover"
                     data-filter="mobile">
                     <i class="fas fa-mobile-alt mr-2"></i>Mobil
                 </button>
-                <button class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 font-medium transition-all duration-300 hover:scale-105 hover:bg-red-600 hover:text-white"
+                <button class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 font-medium transition-all duration-300 hover:scale-105 hover:bg-red-600 hover:text-white enhanced-hover"
                     data-filter="api">
                     <i class="fas fa-server mr-2"></i>API/Backend
                 </button>
-                <button class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 font-medium transition-all duration-300 hover:scale-105 hover:bg-orange-600 hover:text-white"
+                <button class="portfolio-filter px-6 py-2 rounded-full bg-gray-800 text-gray-300 font-medium transition-all duration-300 hover:scale-105 hover:bg-orange-600 hover:text-white enhanced-hover"
                     data-filter="other">
                     <i class="fas fa-code mr-2"></i>Diğer
                 </button>
             </div>
 
             <!-- Portföy Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 <!-- GitHub projeler buraya yüklenecek -->
+            </div>
+
+            <!-- Daha Fazla Proje Butonu -->
+            <div class="text-center mt-12">
+                <a href="https://github.com/metinkpnk?tab=repositories" target="_blank"
+                    class="inline-flex items-center px-8 py-3 bg-gray-800 hover:bg-primary-600 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 enhanced-hover">
+                    <i class="fab fa-github mr-2"></i>
+                    GitHub'da Tüm Projelerim
+                    <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -393,32 +441,32 @@ Her zaman temiz, verimli ve sürdürülebilir kod yazmaya özen gösterdim. Kull
 
             <div class="grid lg:grid-cols-2 gap-12">
                 <!-- İletişim Formu -->
-                <div class="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+                <div class="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700 advanced-card">
                     <form id="contact-form" action="https://formspree.io/f/xjgknywj" method="POST" class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Ad</label>
                                 <input type="text" id="name" name="name" required
-                                    class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                                    class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors enhanced-hover"
                                     placeholder="Adınız" />
                             </div>
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-300 mb-2">E-posta</label>
                                 <input type="email" id="email" name="_replyto" required
-                                    class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                                    class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors enhanced-hover"
                                     placeholder="email@ornek.com" />
                             </div>
                         </div>
                         <div>
                             <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Konu</label>
                             <input type="text" id="subject" name="_subject" required
-                                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors enhanced-hover"
                                 placeholder="Proje Tartışması" />
                         </div>
                         <div>
                             <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Mesaj</label>
                             <textarea id="message" name="message" rows="6" required
-                                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none"
+                                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none enhanced-hover"
                                 placeholder="Projeniz hakkında bana bilgi verin..."></textarea>
                         </div>
                         
@@ -428,7 +476,7 @@ Her zaman temiz, verimli ve sürdürülebilir kod yazmaya özen gösterdim. Kull
                         <input type="hidden" name="_captcha" value="false">
                         
                         <button type="submit" id="submit-btn"
-                            class="w-full px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-800">
+                            class="w-full px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-800 enhanced-hover">
                             <i class="fas fa-paper-plane mr-2"></i>
                             Mesajı Gönder
                         </button>

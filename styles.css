@@ -274,26 +274,103 @@ html {
 	}
 }
 
-/* Yazdırma (print) için stiller */
-@media print {
-	.no-print {
-		display: none !important;  /* "no-print" sınıfına sahip öğeleri yazdırırken gizler */
+/* Typing animasyonu için blink efekti */
+@keyframes blink {
+	0%, 50% {
+		border-color: #7c3aed;
 	}
-
-	body {
-		background: white !important;  /* Yazdırma sırasında arka planı beyaz yapar */
-		color: black !important;  /* Metni siyah yapar */
+	51%, 100% {
+		border-color: transparent;
 	}
+}
 
-	.bg-gray-900,
-	.bg-gray-800 {
-		background: white !important;  /* Koyu temadaki arka planları beyaz yapar */
+/* Gelişmiş hover efektleri */
+.enhanced-hover {
+	position: relative;
+	overflow: hidden;
+}
+
+.enhanced-hover::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.4), transparent);
+	transition: left 0.5s ease;
+}
+
+.enhanced-hover:hover::before {
+	left: 100%;
+}
+
+/* Paralaks efekti için */
+.parallax-bg {
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* Gelişmiş card hover efektleri */
+.advanced-card {
+	transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	transform-style: preserve-3d;
+}
+
+.advanced-card:hover {
+	transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+	box-shadow: 0 25px 50px rgba(124, 58, 237, 0.3);
+}
+
+/* Gelişmiş gradient animasyonları */
+@keyframes gradient-shift {
+	0% {
+		background-position: 0% 50%;
 	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 
-	.text-white,
-	.text-gray-300,
-	.text-gray-400 {
-		color: black !important;  /* Beyaz metinleri siyah yapar */
+.animated-gradient {
+	background: linear-gradient(-45deg, #7c3aed, #a855f7, #c084fc, #e879f9);
+	background-size: 400% 400%;
+	animation: gradient-shift 8s ease infinite;
+}
+
+/* Gelişmiş loading animasyonu */
+.advanced-loading {
+	position: relative;
+}
+
+.advanced-loading::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 40px;
+	height: 40px;
+	margin: -20px 0 0 -20px;
+	border: 3px solid rgba(124, 58, 237, 0.3);
+	border-top: 3px solid #7c3aed;
+	border-radius: 50%;
+	animation: advanced-spin 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+
+@keyframes advanced-spin {
+	0% {
+		transform: rotate(0deg) scale(1);
+	}
+	50% {
+		transform: rotate(180deg) scale(1.1);
+	}
+	100% {
+		transform: rotate(360deg) scale(1);
 	}
 }
 
@@ -847,3 +924,371 @@ html {
 		bottom: -6px;
 	}
 }
+/* Gelişmiş Responsive Tasarım */
+@media (max-width: 480px) {
+	.text-4xl {
+		font-size: 2rem !important;
+	}
+	
+	.text-6xl {
+		font-size: 3rem !important;
+	}
+	
+	.text-7xl {
+		font-size: 3.5rem !important;
+	}
+	
+	.profile-image {
+		width: 200px !important;
+		height: 200px !important;
+	}
+	
+	.tech-logo {
+		width: 1.5rem !important;
+		height: 1.5rem !important;
+	}
+	
+	.portfolio-filter {
+		font-size: 0.75rem !important;
+		padding: 0.375rem 0.75rem !important;
+	}
+}
+
+/* Gelişmiş Dark Mode Geçişleri */
+.dark-mode-transition {
+	transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Gelişmiş Focus Stilleri */
+.enhanced-focus:focus {
+	outline: 3px solid rgba(124, 58, 237, 0.6);
+	outline-offset: 2px;
+	box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+}
+
+/* Gelişmiş Scroll Animasyonları */
+.scroll-reveal {
+	opacity: 0;
+	transform: translateY(50px);
+	transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-reveal.revealed {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Gelişmiş Button Hover Efektleri */
+.btn-glow:hover {
+	box-shadow: 0 0 20px rgba(124, 58, 237, 0.6);
+	transform: translateY(-2px);
+}
+
+/* Gelişmiş Card Animasyonları */
+.card-flip {
+	perspective: 1000px;
+}
+
+.card-flip-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: transform 0.6s;
+	transform-style: preserve-3d;
+}
+
+.card-flip:hover .card-flip-inner {
+	transform: rotateY(180deg);
+}
+
+.card-flip-front, .card-flip-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+}
+
+.card-flip-back {
+	transform: rotateY(180deg);
+}
+
+/* Gelişmiş Loading States */
+.skeleton {
+	background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+	background-size: 200% 100%;
+	animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+	0% {
+		background-position: 200% 0;
+	}
+	100% {
+		background-position: -200% 0;
+	}
+}
+
+/* Gelişmiş Tooltip Stilleri */
+.tooltip-enhanced {
+	position: relative;
+}
+
+.tooltip-enhanced::after {
+	content: attr(data-tooltip);
+	position: absolute;
+	bottom: 125%;
+	left: 50%;
+	transform: translateX(-50%);
+	background: rgba(0, 0, 0, 0.9);
+	color: white;
+	padding: 8px 12px;
+	border-radius: 6px;
+	font-size: 0.875rem;
+	white-space: nowrap;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease;
+	z-index: 1000;
+}
+
+.tooltip-enhanced::before {
+	content: '';
+	position: absolute;
+	bottom: 115%;
+	left: 50%;
+	transform: translateX(-50%);
+	border: 5px solid transparent;
+	border-top-color: rgba(0, 0, 0, 0.9);
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease;
+}
+
+.tooltip-enhanced:hover::after,
+.tooltip-enhanced:hover::before {
+	opacity: 1;
+	visibility: visible;
+}
+
+/* Gelişmiş Scroll Indicator */
+.scroll-indicator {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: rgba(124, 58, 237, 0.2);
+	z-index: 9999;
+}
+
+.scroll-indicator-bar {
+	height: 100%;
+	background: linear-gradient(90deg, #7c3aed, #a855f7);
+	width: 0%;
+	transition: width 0.1s ease;
+}
+
+/* Gelişmiş Preloader */
+.preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #1f2937;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 10000;
+	transition: opacity 0.5s ease;
+}
+
+.preloader-logo {
+	font-size: 3rem;
+	font-weight: bold;
+	background: linear-gradient(45deg, #7c3aed, #a855f7);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: pulse 2s infinite;
+}
+
+/* Gelişmiş Error States */
+.error-state {
+	background: linear-gradient(135deg, #dc2626, #ef4444);
+	color: white;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	text-align: center;
+	animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+	0%, 100% { transform: translateX(0); }
+	25% { transform: translateX(-5px); }
+	75% { transform: translateX(5px); }
+}
+
+/* Gelişmiş Success States */
+.success-state {
+	background: linear-gradient(135deg, #059669, #10b981);
+	color: white;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	text-align: center;
+	animation: bounce-in 0.5s ease-out;
+}
+
+@keyframes bounce-in {
+	0% { transform: scale(0.3); opacity: 0; }
+	50% { transform: scale(1.05); }
+	70% { transform: scale(0.9); }
+	100% { transform: scale(1); opacity: 1; }
+}
+/* Sayfalama Stilleri */
+.pagination-controls {
+	margin-top: 2rem;
+}
+
+.pagination-controls button {
+	transition: all 0.3s ease;
+}
+
+.pagination-controls button:hover:not(:disabled) {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+.pagination-controls button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.page-number {
+	min-width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.page-number:hover {
+	background-color: #374151 !important;
+}
+
+.page-number.active {
+	background-color: #7c3aed !important;
+	color: white !important;
+}
+
+/* Kompakt Proje Kartları */
+.portfolio-item {
+	min-height: 280px;
+}
+
+.portfolio-item h3 {
+	font-size: 1.125rem;
+	line-height: 1.4;
+}
+
+.portfolio-item p {
+	font-size: 0.875rem;
+	line-height: 1.5;
+}
+
+/* Responsive Grid İyileştirmeleri */
+@media (min-width: 1280px) {
+	.portfolio-grid-xl {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 768px) {
+	.portfolio-item {
+		min-height: 240px;
+	}
+	
+	.pagination-controls {
+		flex-direction: column;
+		gap: 1rem;
+	}
+	
+	.pagination-controls > div {
+		order: -1;
+	}
+}
+
+/* Proje Sayısı Göstergesi */
+.project-count {
+	background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(168, 85, 247, 0.1));
+	border: 1px solid rgba(124, 58, 237, 0.2);
+	border-radius: 0.5rem;
+	padding: 0.5rem 1rem;
+	color: #a855f7;
+	font-size: 0.875rem;
+	font-weight: 500;
+}
+
+/* Loading State İyileştirmeleri */
+.loading-skeleton {
+	background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+	background-size: 200% 100%;
+	animation: skeleton-loading 1.5s infinite;
+	border-radius: 0.75rem;
+}
+
+@keyframes skeleton-loading {
+	0% { background-position: 200% 0; }
+	100% { background-position: -200% 0; }
+}
+
+/* Gelişmiş Hover Efektleri */
+.portfolio-item:hover .tech-tag {
+	transform: scale(1.05);
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.tech-tag {
+	transition: all 0.2s ease;
+}
+
+/* Filtreleme Butonları İyileştirmeleri */
+.portfolio-filter {
+	position: relative;
+	overflow: hidden;
+}
+
+.portfolio-filter::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+	transition: left 0.5s ease;
+}
+
+.portfolio-filter:hover::after {
+	left: 100%;
+}
+
+/* Proje İstatistikleri */
+.project-stats {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 0.75rem;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.project-stats i {
+	font-size: 0.625rem;
+}
+
+/* Kategori Renk Kodları */
+.category-web { border-left: 4px solid #3b82f6; }
+.category-desktop { border-left: 4px solid #10b981; }
+.category-mobile { border-left: 4px solid #a855f7; }
+.category-api { border-left: 4px solid #ef4444; }
+.category-other { border-left: 4px solid #f59e0b; }
