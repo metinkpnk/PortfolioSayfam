@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     initializeNavigation();  // Navigasyon fonksiyonunu başlatır
     initializeThemeToggle();  // Tema değiştirici fonksiyonunu başlatır
+    initializeLanguageToggle();  // Dil değiştirici fonksiyonunu başlatır
     initializeMobileMenu();  // Mobil menü fonksiyonunu başlatır
     initializeScrollEffects();  // Scroll (kaydırma) efektlerini başlatır
     initializePortfolioFilter();  // Portföy filtreleme fonksiyonunu başlatır
@@ -80,18 +81,162 @@ function initializeNavigation() {
     }
 }
 
-// Tema değiştirme fonksiyonu (Sadece koyu mod)
+// Tema değiştirme fonksiyonu (Koyu/Aydınlık mod)
 function initializeThemeToggle() {
-    const html = document.documentElement;  // HTML elementini seçer
-    const body = document.body;  // Body elementini seçer
+    const html = document.documentElement;
+    const body = document.body;
+    const themeToggle = document.getElementById('theme-toggle');
+    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const mobileThemeIcon = document.getElementById('mobile-theme-icon');
 
-    // Koyu modu kalıcı yapar
-    html.classList.add('dark');
-    body.classList.add('dark');
+    // Varsayılan tema: koyu mod
+    let currentTheme = localStorage.getItem('theme') || 'dark';
+    
+    // Temayı uygula
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            html.classList.add('dark');
+            html.classList.remove('light');
+            body.classList.add('dark');
+            body.classList.remove('light');
+            themeIcon.className = 'fas fa-sun text-lg';
+            mobileThemeIcon.className = 'fas fa-sun';
+        } else {
+            html.classList.add('light');
+            html.classList.remove('dark');
+            body.classList.add('light');
+            body.classList.remove('dark');
+            themeIcon.className = 'fas fa-moon text-lg';
+            mobileThemeIcon.className = 'fas fa-moon';
+        }
+        localStorage.setItem('theme', theme);
+        currentTheme = theme;
+    }
 
-    // Işık modunun varsa, onu kaldırır
-    html.classList.remove('light');
-    body.classList.remove('light');
+    // Başlangıç temasını uygula
+    applyTheme(currentTheme);
+
+    // Tema değiştirme fonksiyonu
+    function toggleTheme() {
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+    }
+
+    // Event listener'ları ekle
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+    if (mobileThemeToggle) {
+        mobileThemeToggle.addEventListener('click', toggleTheme);
+    }
+}
+
+// Dil değiştirme fonksiyonu
+function initializeLanguageToggle() {
+    const languageToggle = document.getElementById('language-toggle');
+    const languageMenu = document.getElementById('language-menu');
+    const currentLangSpan = document.getElementById('current-lang');
+    const langOptions = document.querySelectorAll('.lang-option');
+    const mobileLangOptions = document.querySelectorAll('.lang-option-mobile');
+
+    let currentLang = localStorage.getItem('language') || 'tr';
+
+    // Çeviri metinleri
+    const translations = {
+        tr: {
+            // Navigasyon
+            'Ana Sayfa': 'Ana Sayfa',
+            'Hakkımda': 'Hakkımda',
+            'Portföy': 'Portföy',
+            'İletişim': 'İletişim',
+            // Hero bölümü
+            'Projeler İçin Uygun': 'Projeler İçin Uygun',
+            'Metin': 'Metin',
+            'Yazılım Geliştirici': 'Yazılım Geliştirici',
+            'Portföyü Görüntüle': 'Portföyü Görüntüle',
+            'İletişime Geç': 'İletişime Geç'
+        },
+        en: {
+            // Navigasyon
+            'Ana Sayfa': 'Home',
+            'Hakkımda': 'About',
+            'Portföy': 'Portfolio',
+            'İletişim': 'Contact',
+            // Hero bölümü
+            'Projeler İçin Uygun': 'Available for Projects',
+            'Metin': 'Metin',
+            'Yazılım Geliştirici': 'Software Developer',
+            'Portföyü Görüntüle': 'View Portfolio',
+            'İletişime Geç': 'Get In Touch'
+        }
+    };
+
+    // Dili uygula
+    function applyLanguage(lang) {
+        const elements = document.querySelectorAll('[data-tr][data-en]');
+        elements.forEach(element => {
+            const trText = element.getAttribute('data-tr');
+            const enText = element.getAttribute('data-en');
+            
+            if (lang === 'tr') {
+                element.textContent = trText;
+            } else {
+                element.textContent = enText;
+            }
+        });
+
+        // Dil göstergesini güncelle
+        currentLangSpan.textContent = lang.toUpperCase();
+        
+        // Mobil butonları güncelle
+        mobileLangOptions.forEach(btn => {
+            const btnLang = btn.getAttribute('data-lang');
+            if (btnLang === lang) {
+                btn.classList.add('bg-gray-700', 'text-white');
+                btn.classList.remove('bg-gray-600', 'text-gray-300');
+            } else {
+                btn.classList.add('bg-gray-600', 'text-gray-300');
+                btn.classList.remove('bg-gray-700', 'text-white');
+            }
+        });
+
+        localStorage.setItem('language', lang);
+        currentLang = lang;
+    }
+
+    // Başlangıç dilini uygula
+    applyLanguage(currentLang);
+
+    // Dil menüsü toggle
+    if (languageToggle && languageMenu) {
+        languageToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            languageMenu.classList.toggle('hidden');
+        });
+
+        // Dışarı tıklanınca menüyü kapat
+        document.addEventListener('click', () => {
+            languageMenu.classList.add('hidden');
+        });
+    }
+
+    // Dil seçenekleri
+    langOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            const selectedLang = option.getAttribute('data-lang');
+            applyLanguage(selectedLang);
+            languageMenu.classList.add('hidden');
+        });
+    });
+
+    // Mobil dil seçenekleri
+    mobileLangOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            const selectedLang = option.getAttribute('data-lang');
+            applyLanguage(selectedLang);
+        });
+    });
 }
 
 // Mobil Menü İşlevselliği
@@ -284,7 +429,7 @@ function initializeCounters() {
     };
 }
 
-// İletişim formu işlevi
+// İletişim formu işlevi - Netlify için güncellenmiş
 function initializeContactForm() {
     const contactForm = document.getElementById('contact-form');
 
@@ -315,27 +460,19 @@ function initializeContactForm() {
             submitButton.disabled = true;
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Gönderiliyor...';
 
-            // Formspree'ye gönder
-            fetch('https://formspree.io/f/xjgknywj', {
+            // Netlify'ye gönder
+            fetch('/', {
                 method: 'POST',
-                headers: {
-                    'Accept': 'application/json'
-                },
-                body: formData
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
             })
-            .then(response => {
-                if (response.ok) {
-                    showNotification('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağım.', 'success');
-                    contactForm.reset();
-                } else {
-                    return response.json().then(data => {
-                        if (Object.hasOwnProperty.call(data, 'errors')) {
-                            throw new Error(data["errors"].map(error => error["message"]).join(", "));
-                        } else {
-                            throw new Error('Form gönderilirken hata oluştu');
-                        }
-                    });
-                }
+            .then(() => {
+                showNotification('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağım.', 'success');
+                contactForm.reset();
+                // Teşekkür sayfasına yönlendir
+                setTimeout(() => {
+                    window.location.href = '/thank-you.html';
+                }, 2000);
             })
             .catch(error => {
                 console.error('Hata:', error);

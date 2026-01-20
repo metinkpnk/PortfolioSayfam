@@ -140,16 +140,47 @@
                 </div>
 
                 <!-- Masaüstü Navigasyonu -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="flex items-baseline space-x-4">
                         <a href="#home"
-                            class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Ana Sayfa</a>
+                            class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                            data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
                         <a href="#about"
-                            class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Hakkımda</a>
+                            class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                            data-tr="Hakkımda" data-en="About">Hakkımda</a>
                         <a href="#portfolio"
-                            class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Portföy</a>
+                            class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                            data-tr="Portföy" data-en="Portfolio">Portföy</a>
                         <a href="#contact"
-                            class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">İletişim</a>
+                            class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                            data-tr="İletişim" data-en="Contact">İletişim</a>
+                    </div>
+                    
+                    <!-- Kontrol Butonları -->
+                    <div class="flex items-center space-x-2 ml-6 pl-6 border-l border-gray-700">
+                        <!-- Dil Değiştirici -->
+                        <div class="relative">
+                            <button id="language-toggle" 
+                                class="flex items-center space-x-1 px-3 py-2 text-gray-300 hover:text-white transition-colors rounded-md hover:bg-gray-800">
+                                <i class="fas fa-globe text-sm"></i>
+                                <span id="current-lang" class="text-sm font-medium">TR</span>
+                                <i class="fas fa-chevron-down text-xs"></i>
+                            </button>
+                            <div id="language-menu" class="absolute right-0 mt-2 w-32 bg-gray-800 rounded-md shadow-lg border border-gray-700 hidden z-50">
+                                <button class="lang-option w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-700 rounded-t-md" data-lang="tr">
+                                    🇹🇷 Türkçe
+                                </button>
+                                <button class="lang-option w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-700 rounded-b-md" data-lang="en">
+                                    🇺🇸 English
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Tema Değiştirici -->
+                        <button id="theme-toggle" 
+                            class="flex items-center justify-center w-10 h-10 text-gray-300 hover:text-white transition-colors rounded-md hover:bg-gray-800">
+                            <i id="theme-icon" class="fas fa-sun text-lg"></i>
+                        </button>
                     </div>
                 </div>
 
@@ -178,6 +209,23 @@
                     class="mobile-nav-link block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md">Portföy</a>
                 <a href="#contact"
                     class="mobile-nav-link block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md">İletişim</a>
+                
+                <!-- Mobil Kontroller -->
+                <div class="border-t border-gray-700 pt-3 mt-3">
+                    <div class="flex items-center justify-between px-3 py-2">
+                        <span class="text-gray-400 text-sm">Dil / Language</span>
+                        <div class="flex space-x-2">
+                            <button class="lang-option-mobile px-3 py-1 text-sm bg-gray-700 text-white rounded" data-lang="tr">TR</button>
+                            <button class="lang-option-mobile px-3 py-1 text-sm bg-gray-600 text-gray-300 rounded" data-lang="en">EN</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between px-3 py-2">
+                        <span class="text-gray-400 text-sm">Tema / Theme</span>
+                        <button id="mobile-theme-toggle" class="flex items-center justify-center w-10 h-8 bg-gray-700 text-gray-300 rounded">
+                            <i id="mobile-theme-icon" class="fas fa-sun"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -204,14 +252,17 @@
                         <span
                             class="inline-block px-4 py-2 bg-primary-600/20 text-primary-300 rounded-full text-sm font-medium mb-4 animate-slide-up enhanced-hover">
                             <i class="fas fa-rocket mr-2"></i>
-                            Projeler İçin Uygun
+                            <span data-tr="Projeler İçin Uygun" data-en="Available for Projects">Projeler İçin Uygun</span>
                         </span>
                         <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-                            Metin
+                            <span data-tr="Metin" data-en="Metin">Metin</span>
                             <span id="kepenek" class="bg-gradient-to-r from-primary-400 to-purple-400 bg-clip-text text-transparent">KEPENEK</span>
                         </h1>
-                        <p id="kepenek" class="text-xl sm:text-2xl text-gray-300 mb-4 animated-gradient bg-clip-text text-transparent">Yazılım Geliştirici</p>
-                        <p class="text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0">
+                        <p id="kepenek" class="text-xl sm:text-2xl text-gray-300 mb-4 animated-gradient bg-clip-text text-transparent" 
+                           data-tr="Yazılım Geliştirici" data-en="Software Developer">Yazılım Geliştirici</p>
+                        <p class="text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0" 
+                           data-tr="C#, Windows Forms ve Entity Framework ile masaüstü uygulamaları geliştirme deneyimim bulunuyor. Ayrıca, HTML, CSS ve JavaScript gibi web teknolojilerine hâkimim. Pek çok farklı projede yer aldım ve her zaman temiz, verimli, kullanıcı odaklı ve ölçeklenebilir yazılım çözümleri geliştirmeye özen gösteriyorum."
+                           data-en="I have experience developing desktop applications with C#, Windows Forms and Entity Framework. I am also proficient in web technologies such as HTML, CSS and JavaScript. I have been involved in many different projects and always strive to develop clean, efficient, user-focused and scalable software solutions.">
                             C#, Windows Forms ve Entity Framework ile masaüstü uygulamaları geliştirme deneyimim bulunuyor. Ayrıca, HTML, CSS ve JavaScript gibi web teknolojilerine hâkimim. Pek çok farklı projede yer aldım ve her zaman temiz, verimli, kullanıcı odaklı ve ölçeklenebilir yazılım çözümleri geliştirmeye özen gösteriyorum.
                         </p>
                     </div>
@@ -220,11 +271,13 @@
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
                         <a href="#portfolio"
                             class="px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-primary-500/25 enhanced-hover">
-                            <i class="fas fa-folder-open mr-2"></i>Portföyü Görüntüle
+                            <i class="fas fa-folder-open mr-2"></i>
+                            <span data-tr="Portföyü Görüntüle" data-en="View Portfolio">Portföyü Görüntüle</span>
                         </a>
                         <a href="#contact"
                             class="px-8 py-3 border-2 border-primary-600 text-primary-400 hover:bg-primary-600 hover:text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 enhanced-hover">
-                            <i class="fas fa-envelope mr-2"></i>İletişime Geç
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span data-tr="İletişime Geç" data-en="Get In Touch">İletişime Geç</span>
                         </a>
                     </div>
 
@@ -442,7 +495,8 @@ Her zaman temiz, verimli ve sürdürülebilir kod yazmaya özen gösterdim. Kull
             <div class="grid lg:grid-cols-2 gap-12">
                 <!-- İletişim Formu -->
                 <div class="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 border border-gray-700 advanced-card">
-                    <form id="contact-form" action="https://formspree.io/f/xjgknywj" method="POST" class="space-y-6">
+                    <form id="contact-form" name="contact" method="POST" data-netlify="true" class="space-y-6">
+                        <input type="hidden" name="form-name" value="contact" />
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Ad</label>
@@ -469,11 +523,6 @@ Her zaman temiz, verimli ve sürdürülebilir kod yazmaya özen gösterdim. Kull
                                 class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none enhanced-hover"
                                 placeholder="Projeniz hakkında bana bilgi verin..."></textarea>
                         </div>
-                        
-                        <!-- Formspree için gizli alanlar -->
-                        <input type="hidden" name="_to" value="mtnkepenek@gmail.com">
-                        <input type="hidden" name="_next" value="thank-you.html">
-                        <input type="hidden" name="_captcha" value="false">
                         
                         <button type="submit" id="submit-btn"
                             class="w-full px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-800 enhanced-hover">

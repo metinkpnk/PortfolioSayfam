@@ -1,0 +1,8 @@
+# Netlify redirects
+/home /
+/portfolio /#portfolio
+/about /#about
+/contact /#contact
+
+# 404 sayfası
+/* /404.html 404
