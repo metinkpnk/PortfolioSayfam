@@ -230,34 +230,112 @@ body {
     filter: blur(64px);
 }
 
-/* Responsive Tasarım */
+/* Responsive Tasarım - Geliştirilmiş Mobil */
 @media (max-width: 768px) {
+    /* Genel Typography */
     .text-4xl {
-        font-size: 2.25rem;
+        font-size: 2rem;
     }
     
     .text-6xl {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     
     .text-7xl {
-        font-size: 3.75rem;
+        font-size: 3rem;
     }
     
-    .w-72 {
+    /* Hero Section Mobil */
+    #home {
+        padding: 1rem;
+        min-height: 100vh;
+    }
+    
+    #home .grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    /* Profil resmi mobilde küçült */
+    .w-72, .h-72 {
+        width: 10rem;
+        height: 10rem;
+    }
+    
+    .lg\:w-96, .lg\:h-96 {
         width: 12rem;
-    }
-    
-    .h-72 {
         height: 12rem;
     }
     
-    .lg\:w-96 {
-        width: 16rem;
+    /* Butonlar mobilde tam genişlik */
+    #home .flex-col .flex {
+        flex-direction: column;
+        width: 100%;
     }
     
-    .lg\:h-96 {
-        height: 16rem;
+    #home .flex-col .flex a {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.75rem;
+    }
+    
+    /* Sosyal linkler mobilde daha büyük */
+    #home .space-x-6 {
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    
+    #home .space-x-6 a {
+        font-size: 1.5rem;
+        padding: 0.75rem;
+    }
+}
+
+/* Küçük Mobil Cihazlar */
+@media (max-width: 480px) {
+    /* Daha küçük yazı boyutları */
+    .text-4xl {
+        font-size: 1.75rem;
+    }
+    
+    .text-6xl {
+        font-size: 2rem;
+    }
+    
+    .text-7xl {
+        font-size: 2.25rem;
+    }
+    
+    /* Padding'leri azalt */
+    .py-20 {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    
+    .px-4 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Hero section daha kompakt */
+    #home {
+        padding: 0.5rem;
+    }
+    
+    /* Profil resmi daha küçük */
+    .w-72, .h-72, .lg\:w-96, .lg\:h-96 {
+        width: 8rem;
+        height: 8rem;
+    }
+    
+    /* Butonlar daha küçük padding */
+    #home .px-8 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        font-size: 0.875rem;
     }
 }
 
@@ -724,8 +802,21 @@ body {
     animation: spin 1s linear infinite;
 }
 
-/* Responsive Tasarım */
+/* Responsive Tasarım - Portfolio ve Filtreler */
 @media (max-width: 768px) {
+    /* Portfolio bölümü */
+    #portfolio {
+        padding: 2rem 1rem;
+    }
+    
+    /* Arama kutusu mobilde tam genişlik */
+    #project-search {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.75rem 1rem 0.75rem 3rem;
+    }
+    
+    /* Filtre butonları mobilde küçük */
     .filter-btn {
         font-size: 0.75rem;
         padding: 0.375rem 0.75rem;
@@ -733,6 +824,61 @@ body {
     
     #tech-filters {
         gap: 0.375rem;
+        justify-content: center;
+    }
+    
+    /* Proje kartları mobilde tek sütun */
+    #portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .project-card {
+        padding: 1rem;
+    }
+    
+    .project-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .project-card p {
+        font-size: 0.875rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    /* Teknoloji etiketleri mobilde küçük */
+    .tech-tags {
+        gap: 0.25rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .tech-tag {
+        font-size: 0.625rem;
+        padding: 0.125rem 0.375rem;
+    }
+    
+    /* Proje linkleri mobilde dikey */
+    .project-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .project-links a {
+        font-size: 0.75rem;
+        padding: 0.375rem 0.75rem;
+        text-align: center;
+    }
+    
+    /* Proje istatistikleri mobilde küçük */
+    .project-stats {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .project-stat {
+        font-size: 0.625rem;
+        padding: 0.125rem 0.375rem;
     }
 }
 
@@ -1255,22 +1401,53 @@ body {
     transform: scale(1.1) rotate(5deg);
 }
 
-/* Responsive Timeline */
+/* Responsive Timeline - Geliştirilmiş */
 @media (max-width: 768px) {
+    /* Hakkımda bölümü mobil */
+    #about .grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    #about .grid-cols-2 {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    /* İstatistik kartları mobilde 2x2 */
+    #about .grid-cols-2:last-child {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    #about .grid-cols-2:last-child > div {
+        padding: 1rem;
+        font-size: 0.875rem;
+    }
+    
+    #about .grid-cols-2:last-child .text-3xl {
+        font-size: 1.5rem;
+    }
+    
+    /* Eğitim Timeline Mobil */
     .timeline-item {
-        margin-left: 2rem;
+        margin-left: 1.5rem;
+        margin-bottom: 1.5rem;
     }
     
     .timeline-dot {
         left: -0.75rem;
         transform: none;
+        width: 1rem;
+        height: 1rem;
     }
     
     .timeline-content {
-        margin-left: 1rem;
+        margin-left: 0.75rem;
+        padding: 1rem;
     }
     
-    /* Mobilde timeline çizgisini sola al */
+    /* Timeline çizgisi mobilde sola */
     .timeline-line-mobile {
         position: absolute;
         left: -0.75rem;
@@ -1278,6 +1455,37 @@ body {
         bottom: 0;
         width: 2px;
         background: linear-gradient(to bottom, #9333ea, #7c3aed);
+    }
+    
+    /* Eğitim kartları mobilde tek sütun */
+    #about .lg\:grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Sertifika kartları mobilde tek sütun */
+    .grid.md\:grid-cols-2.lg\:grid-cols-3 {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    /* Teknoloji ikonları mobilde küçült */
+    #about .flex.items-center.space-x-3 img {
+        width: 2rem;
+        height: 2rem;
+    }
+    
+    /* Metin boyutları mobilde küçült */
+    #about .text-lg {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    #about .text-2xl {
+        font-size: 1.5rem;
+    }
+    
+    #about .text-3xl {
+        font-size: 1.75rem;
     }
 }
 
@@ -1511,16 +1719,90 @@ body {
     }
 }
 
-/* Terminal Responsive */
+/* Terminal Responsive - Geliştirilmiş */
 @media (max-width: 768px) {
+    /* Loading screen mobil */
+    #loading-screen {
+        padding: 1rem;
+    }
+    
+    /* Terminal penceresi mobilde küçük */
     .terminal-content {
-        padding: 16px;
-        font-size: 12px;
+        padding: 1rem;
+        font-size: 0.75rem;
+        line-height: 1.4;
     }
     
     .line-number {
-        width: 24px;
-        margin-right: 12px;
+        width: 20px;
+        margin-right: 8px;
+        font-size: 0.625rem;
+    }
+    
+    /* Terminal header mobilde küçük */
+    .terminal-header {
+        padding: 8px 12px;
+    }
+    
+    .terminal-dot {
+        width: 8px;
+        height: 8px;
+    }
+    
+    /* Progress bar mobilde */
+    #loading-progress {
+        height: 6px;
+    }
+    
+    #loading-percentage {
+        font-size: 0.75rem;
+    }
+    
+    /* Typing text mobilde küçük */
+    #typing-name,
+    #typing-role,
+    #typing-skills,
+    #typing-status,
+    #typing-console {
+        font-size: 0.75rem;
+    }
+}
+
+/* Çok küçük ekranlar için */
+@media (max-width: 480px) {
+    /* Loading screen çok küçük ekranlarda */
+    .terminal-content {
+        padding: 0.75rem;
+        font-size: 0.625rem;
+    }
+    
+    .line-number {
+        width: 16px;
+        margin-right: 6px;
+        font-size: 0.5rem;
+    }
+    
+    /* Terminal header çok küçük */
+    .terminal-header {
+        padding: 6px 8px;
+    }
+    
+    .terminal-header span {
+        font-size: 0.75rem;
+    }
+    
+    .terminal-dot {
+        width: 6px;
+        height: 6px;
+    }
+    
+    /* Progress bar çok küçük ekranlarda */
+    #loading-progress {
+        height: 4px;
+    }
+    
+    #loading-percentage {
+        font-size: 0.625rem;
     }
 }
 
@@ -1714,26 +1996,116 @@ body {
     }
 }
 
-/* Responsive Düzenlemeler */
+/* Responsive Düzenlemeler - Geliştirilmiş */
 @media (max-width: 768px) {
-    #whatsapp-popup {
-        width: 300px;
-        right: -10px;
+    /* İletişim bölümü mobil */
+    #contact {
+        padding: 2rem 1rem;
     }
     
+    #contact .grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    /* Form mobilde tam genişlik */
+    #contact-form {
+        width: 100%;
+    }
+    
+    #contact-form .grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    #contact-form input,
+    #contact-form textarea {
+        font-size: 1rem;
+        padding: 0.75rem;
+    }
+    
+    #contact-form button {
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+    }
+    
+    /* İletişim bilgileri mobilde kompakt */
+    #contact .space-y-8 > div {
+        margin-bottom: 1.5rem;
+    }
+    
+    #contact .w-12.h-12 {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    #contact .text-lg {
+        font-size: 1rem;
+    }
+    
+    /* Sosyal linkler mobilde grid */
+    #contact .flex.space-x-4 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+        margin-top: 1rem;
+    }
+    
+    #contact .w-10.h-10 {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    /* WhatsApp widget mobil pozisyon */
+    #whatsapp-popup {
+        width: 280px;
+        right: -10px;
+        bottom: 18px;
+    }
+    
+    #whatsapp-popup .p-4 {
+        padding: 0.75rem;
+    }
+    
+    #whatsapp-popup .text-sm {
+        font-size: 0.75rem;
+    }
+    
+    /* Share widget mobil pozisyon */
     #share-widget {
-        bottom: 24px;
-        left: 24px;
+        bottom: 20px;
+        left: 20px;
     }
     
     #whatsapp-widget {
-        bottom: 24px;
-        right: 24px;
+        bottom: 20px;
+        right: 20px;
     }
     
+    /* Widget butonları mobilde küçük */
+    #whatsapp-btn, #share-btn {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+    
+    #share-options button {
+        width: 2.75rem;
+        height: 2.75rem;
+    }
+    
+    /* Easter egg notification mobil */
     #easter-egg-notification {
         max-width: 90vw;
         padding: 1rem;
+        font-size: 0.875rem;
+    }
+    
+    #easter-egg-notification .text-xl {
+        font-size: 1.125rem;
+    }
+    
+    #easter-egg-notification .text-4xl {
+        font-size: 2rem;
     }
 }
 
@@ -1772,5 +2144,156 @@ html {
     100% {
         transform: translateX(0);
         opacity: 1;
+    }
+}
+/* Navigasyon Mobil İyileştirmeleri */
+@media (max-width: 768px) {
+    /* Navbar mobilde daha kompakt */
+    #navbar {
+        padding: 0 1rem;
+    }
+    
+    #navbar .h-16 {
+        height: 3.5rem;
+    }
+    
+    /* Logo mobilde küçük */
+    #navbar .text-xl {
+        font-size: 1rem;
+    }
+    
+    /* Mobil menü tam ekran */
+    #mobile-menu {
+        position: fixed;
+        top: 3.5rem;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(17, 24, 39, 0.98);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 50;
+    }
+    
+    #mobile-menu .space-y-1 {
+        padding: 2rem 1rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    #mobile-menu a {
+        font-size: 1.25rem;
+        padding: 1rem 2rem;
+        border-radius: 0.75rem;
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+        background: rgba(55, 65, 81, 0.5);
+        border: 1px solid rgba(75, 85, 99, 0.3);
+        transition: all 0.3s ease;
+    }
+    
+    #mobile-menu a:hover {
+        background: rgba(147, 51, 234, 0.2);
+        border-color: rgba(147, 51, 234, 0.5);
+        transform: translateY(-2px);
+    }
+    
+    /* Mobil dil seçici */
+    #mobile-menu .border-t {
+        border-top: 1px solid rgba(75, 85, 99, 0.3);
+        padding-top: 2rem;
+        margin-top: 2rem;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    #mobile-menu .lang-option-mobile {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 0.5rem;
+        min-width: 4rem;
+    }
+}
+
+/* Çok küçük ekranlar için navigasyon */
+@media (max-width: 480px) {
+    #navbar {
+        padding: 0 0.75rem;
+    }
+    
+    #navbar .text-xl {
+        font-size: 0.875rem;
+    }
+    
+    #mobile-menu .space-y-1 {
+        padding: 1.5rem 0.75rem;
+        gap: 1.5rem;
+    }
+    
+    #mobile-menu a {
+        font-size: 1.125rem;
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+/* Touch Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Touch cihazlar için optimizasyonlar */
+    .hover\:scale-105:hover,
+    .hover\:scale-110:hover,
+    .transform:hover {
+        transform: none;
+    }
+    
+    /* Touch için daha büyük tıklama alanları */
+    #whatsapp-btn,
+    #share-btn {
+        min-width: 48px;
+        min-height: 48px;
+    }
+    
+    .project-links a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Touch için hover efektlerini kaldır */
+    .project-card:hover {
+        transform: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Landscape Orientation Mobil */
+@media (max-width: 768px) and (orientation: landscape) {
+    /* Yatay modda hero section */
+    #home {
+        min-height: 100vh;
+        padding: 1rem;
+    }
+    
+    #home .grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    /* Profil resmi yatay modda küçük */
+    .w-72, .h-72, .lg\:w-96, .lg\:h-96 {
+        width: 8rem;
+        height: 8rem;
+    }
+    
+    /* Loading screen yatay modda */
+    .terminal-content {
+        padding: 0.75rem;
+        font-size: 0.625rem;
     }
 }
