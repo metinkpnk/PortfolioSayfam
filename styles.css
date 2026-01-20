@@ -1,6 +1,39 @@
-/* Tailwind CSS için özel CSS */
-@import "tailwindcss";  /* Tailwind CSS'yi dahil eder */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"); /* Google Fonts üzerinden "Inter" yazı tipini ekler */
+/* Varsayılan Koyu Tema Stilleri */
+body {
+	background-color: #000000;
+	color: #f8fafc;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navigasyon varsayılan - Koyu Tema */
+#navbar {
+	background-color: rgba(0, 0, 0, 0.95);
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid #1a1a1a;
+}
+
+/* Hero bölümü varsayılan - Koyu Tema */
+#home {
+	background: linear-gradient(135deg, #000000 0%, #111111 50%, #000000 100%);
+}
+
+/* Kartlar varsayılan - Koyu Tema */
+.bg-gray-800\/80 {
+	background-color: rgba(17, 17, 17, 0.9);
+	border: 1px solid #2d2d2d;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Scroll progress varsayılan - Koyu Tema */
+.scroll-indicator {
+	background: rgba(0, 0, 0, 0.8);
+}
+
+/* Footer varsayılan - Koyu Tema */
+footer {
+	background-color: #000000;
+	border-top: 1px solid #1a1a1a;
+}
 
 /* Daha iyi kullanıcı deneyimi için düzgün kaydırma */
 html {
@@ -226,17 +259,143 @@ html {
 	}
 }
 
-/* Koyu mod için özel stiller */
+/* Koyu Mod Stilleri - Siyah Ağırlıklı */
 .dark {
-	color-scheme: dark;  /* Koyu tema kullanımı */
+	color-scheme: dark;
 }
 
-.dark .bg-white {
-	background-color: #1f2937;  /* Koyu temada beyaz arka planı koyu gri yapar */
+.dark body {
+	background-color: #000000 !important;
+	color: #f8fafc !important;
 }
 
-.dark .text-gray-900 {
-	color: #f9fafb;  /* Koyu temada metin rengini açık yapar */
+.dark .bg-gray-900 {
+	background-color: #000000 !important;
+}
+
+.dark .bg-gray-800 {
+	background-color: #111111 !important;
+}
+
+.dark .bg-gray-700 {
+	background-color: #1a1a1a !important;
+}
+
+.dark .text-white {
+	color: #f8fafc !important;
+}
+
+.dark .text-gray-300 {
+	color: #d1d5db !important;
+}
+
+.dark .text-gray-400 {
+	color: #9ca3af !important;
+}
+
+.dark .border-gray-800 {
+	border-color: #1a1a1a !important;
+}
+
+.dark .border-gray-700 {
+	border-color: #2d2d2d !important;
+}
+
+.dark .border-gray-600 {
+	border-color: #404040 !important;
+}
+
+/* Navigasyon koyu mod */
+.dark #navbar {
+	background-color: rgba(0, 0, 0, 0.95) !important;
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid #1a1a1a;
+}
+
+.dark .nav-link {
+	color: #d1d5db !important;
+}
+
+.dark .nav-link:hover {
+	color: #f8fafc !important;
+}
+
+/* Hero bölümü koyu mod */
+.dark #home {
+	background: linear-gradient(135deg, #000000 0%, #111111 50%, #000000 100%);
+}
+
+.dark #home .bg-gradient-to-br {
+	background: linear-gradient(135deg, #000000 0%, #111111 50%, #000000 100%) !important;
+}
+
+/* Kartlar koyu mod */
+.dark .bg-gray-800\/80 {
+	background-color: rgba(17, 17, 17, 0.9) !important;
+	border: 1px solid #2d2d2d !important;
+}
+
+.dark .bg-gray-800\/50 {
+	background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Butonlar koyu mod */
+.dark .bg-primary-600 {
+	background-color: #7c3aed !important;
+}
+
+.dark .hover\:bg-primary-700:hover {
+	background-color: #6d28d9 !important;
+}
+
+/* Form elemanları koyu mod */
+.dark input,
+.dark textarea {
+	background-color: #1a1a1a !important;
+	border-color: #404040 !important;
+	color: #f8fafc !important;
+}
+
+.dark input:focus,
+.dark textarea:focus {
+	border-color: #7c3aed !important;
+	box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1) !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+	color: #6b7280 !important;
+}
+
+/* Portföy kartları koyu mod */
+.dark .portfolio-item {
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark .portfolio-item:hover {
+	box-shadow: 0 20px 25px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Scroll progress koyu mod */
+.dark .scroll-indicator {
+	background: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Footer koyu mod */
+.dark footer {
+	background-color: #000000 !important;
+	border-top: 1px solid #1a1a1a !important;
+}
+
+/* Mobil menü koyu mod */
+.dark #mobile-menu {
+	background-color: #111111 !important;
+}
+
+/* Parçacık efekti koyu mod */
+.dark #particles-container .particle {
+	background-color: rgba(124, 58, 237, 0.3) !important;
+	box-shadow: 0 0 10px rgba(124, 58, 237, 0.5) !important;
 }
 
 /* Özel utility (yardımcı) sınıflar */
@@ -1292,13 +1451,13 @@ html {
 .category-mobile { border-left: 4px solid #a855f7; }
 .category-api { border-left: 4px solid #ef4444; }
 .category-other { border-left: 4px solid #f59e0b; }
-/* Aydınlık Mod Stilleri */
+/* Aydınlık Mod Stilleri - Varsayılan Tema */
 .light {
 	color-scheme: light;
 }
 
 .light body {
-	background-color: #f8fafc;
+	background-color: #ffffff;
 	color: #1f2937;
 }
 
@@ -1307,11 +1466,11 @@ html {
 }
 
 .light .bg-gray-800 {
-	background-color: #f1f5f9 !important;
+	background-color: #f8fafc !important;
 }
 
 .light .bg-gray-700 {
-	background-color: #e2e8f0 !important;
+	background-color: #f1f5f9 !important;
 }
 
 .light .text-white {
@@ -1340,7 +1499,7 @@ html {
 
 /* Navigasyon aydınlık mod */
 .light #navbar {
-	background-color: rgba(255, 255, 255, 0.9) !important;
+	background-color: rgba(255, 255, 255, 0.95) !important;
 	backdrop-filter: blur(10px);
 	border-bottom: 1px solid #e2e8f0;
 }
@@ -1355,21 +1514,22 @@ html {
 
 /* Hero bölümü aydınlık mod */
 .light #home {
-	background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+	background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
 }
 
 .light #home .bg-gradient-to-br {
-	background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%) !important;
+	background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%) !important;
 }
 
 /* Kartlar aydınlık mod */
 .light .bg-gray-800\/80 {
-	background-color: rgba(255, 255, 255, 0.9) !important;
+	background-color: rgba(255, 255, 255, 0.95) !important;
 	border: 1px solid #e2e8f0 !important;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
 }
 
 .light .bg-gray-800\/50 {
-	background-color: rgba(248, 250, 252, 0.8) !important;
+	background-color: rgba(248, 250, 252, 0.9) !important;
 }
 
 /* Butonlar aydınlık mod */
@@ -1418,6 +1578,12 @@ html {
 .light footer {
 	background-color: #f8fafc !important;
 	border-top: 1px solid #e2e8f0 !important;
+}
+
+/* Mobil menü aydınlık mod */
+.light #mobile-menu {
+	background-color: #ffffff !important;
+	border: 1px solid #e2e8f0 !important;
 }
 
 /* Tema geçiş animasyonu */
@@ -1476,4 +1642,104 @@ body {
 		width: 2rem;
 		height: 2rem;
 	}
+}
+/* Koyu mod için navigasyon kontrolleri */
+.dark #language-toggle {
+	color: #d1d5db !important;
+	border-color: #404040 !important;
+}
+
+.dark #language-toggle:hover {
+	color: #f8fafc !important;
+	background-color: #1a1a1a !important;
+}
+
+.dark #language-menu {
+	background-color: #111111 !important;
+	border-color: #404040 !important;
+}
+
+.dark .lang-option {
+	color: #d1d5db !important;
+}
+
+.dark .lang-option:hover {
+	color: #f8fafc !important;
+	background-color: #1a1a1a !important;
+}
+
+.dark #theme-toggle {
+	color: #d1d5db !important;
+}
+
+.dark #theme-toggle:hover {
+	color: #f8fafc !important;
+	background-color: #1a1a1a !important;
+}
+
+/* Mobil menü koyu mod kontrolleri */
+.dark .lang-option-mobile {
+	background-color: #1a1a1a !important;
+	color: #d1d5db !important;
+}
+
+.dark .lang-option-mobile.bg-gray-700 {
+	background-color: #404040 !important;
+	color: #f8fafc !important;
+}
+
+.dark #mobile-theme-toggle {
+	background-color: #1a1a1a !important;
+	color: #d1d5db !important;
+}
+
+/* Parçacık efekti koyu mod için daha parlak */
+.dark .particle {
+	background: rgba(124, 58, 237, 0.6) !important;
+	box-shadow: 0 0 15px rgba(124, 58, 237, 0.8) !important;
+}
+
+/* Scroll progress koyu mod */
+.dark .scroll-indicator-bar {
+	background: linear-gradient(90deg, #7c3aed, #a855f7) !important;
+}
+
+/* Gelişmiş siyah gradient'ler */
+.dark .bg-gradient-to-br {
+	background: linear-gradient(135deg, #000000 0%, #111111 25%, #1a1a1a 50%, #111111 75%, #000000 100%) !important;
+}
+
+.dark .animated-gradient {
+	background: linear-gradient(-45deg, #000000, #1a1a1a, #111111, #000000) !important;
+	background-size: 400% 400% !important;
+}
+
+/* Profil resmi border koyu mod */
+.dark .profile-image {
+	border-color: rgba(124, 58, 237, 0.5) !important;
+}
+
+.dark .profile-image::before {
+	background: linear-gradient(45deg, 
+		transparent, 
+		rgba(124, 58, 237, 1), 
+		transparent, 
+		rgba(168, 85, 247, 1), 
+		transparent, 
+		rgba(124, 58, 237, 1), 
+		transparent
+	) !important;
+}
+
+/* Koyu mod için daha iyi kontrast */
+.dark h1, .dark h2, .dark h3, .dark h4 {
+	color: #ffffff !important;
+}
+
+.dark .text-primary-400 {
+	color: #a855f7 !important;
+}
+
+.dark .bg-primary-600\/20 {
+	background-color: rgba(124, 58, 237, 0.3) !important;
 }

@@ -81,7 +81,7 @@ function initializeNavigation() {
     }
 }
 
-// Tema değiştirme fonksiyonu (Koyu/Aydınlık mod)
+// Tema değiştirme fonksiyonu (Aydınlık/Koyu mod)
 function initializeThemeToggle() {
     const html = document.documentElement;
     const body = document.body;
@@ -155,7 +155,51 @@ function initializeLanguageToggle() {
             'Metin': 'Metin',
             'Yazılım Geliştirici': 'Yazılım Geliştirici',
             'Portföyü Görüntüle': 'Portföyü Görüntüle',
-            'İletişime Geç': 'İletişime Geç'
+            'İletişime Geç': 'İletişime Geç',
+            // Hakkımda
+            'About Me': 'Hakkımda',
+            'Fark yaratan yenilikçi çözümler yaratmaya tutkuyla bağlıyım': 'Fark yaratan yenilikçi çözümler yaratmaya tutkuyla bağlıyım',
+            'Mega Projeler': 'Mega Projeler',
+            'Yıl Deneyim': 'Yıl Deneyim',
+            'Mutlu Müşteriler': 'Mutlu Müşteriler',
+            'GitHub Yıldızları': 'GitHub Yıldızları',
+            // Portföy
+            'Benim': 'Benim',
+            'Portföyüm': 'Portföyüm',
+            'Son projelerim ve yeniliklerimin bir sergisi': 'Son projelerim ve yeniliklerimin bir sergisi',
+            'Hepsi': 'Hepsi',
+            'Web': 'Web',
+            'Desktop': 'Desktop',
+            'Mobil': 'Mobil',
+            'API/Backend': 'API/Backend',
+            'Diğer': 'Diğer',
+            'GitHub\'da Tüm Projelerim': 'GitHub\'da Tüm Projelerim',
+            // İletişim
+            'Hadi Çalışalım': 'Hadi Çalışalım',
+            'Birlikte': 'Birlikte',
+            'Bir projeniz mi var? Fikirlerinizi hayata geçirebilmem için nasıl yardımcı olabileceğimi konuşalım': 'Bir projeniz mi var? Fikirlerinizi hayata geçirebilmem için nasıl yardımcı olabileceğimi konuşalım',
+            'Ad': 'Ad',
+            'E-posta': 'E-posta',
+            'Konu': 'Konu',
+            'Mesaj': 'Mesaj',
+            'Mesajı Gönder': 'Mesajı Gönder',
+            // İletişim Bilgileri
+            'Konum': 'Konum',
+            'Türkiye/Kahramanmaraş': 'Türkiye/Kahramanmaraş',
+            'Uzaktan Çalışma İçin Uygun': 'Uzaktan Çalışma İçin Uygun',
+            'Telefon': 'Telefon',
+            'Yanıt Süresi': 'Yanıt Süresi',
+            'Genellikle 24 saat içinde': 'Genellikle 24 saat içinde',
+            'Benimle Bağlantıya Geç': 'Benimle Bağlantıya Geç',
+            // Footer
+            'Hızlı Linkler': 'Hızlı Linkler',
+            'Hizmetler': 'Hizmetler',
+            'Öne Çıkan Projeler': 'Öne Çıkan Projeler',
+            'GitHub Portföyü': 'GitHub Portföyü',
+            '© 2025 Metin KEPENEK. Tüm hakları saklıdır.': '© 2025 Metin KEPENEK. Tüm hakları saklıdır.',
+            // Mobil
+            'Dil / Language': 'Dil / Language',
+            'Tema / Theme': 'Tema / Theme'
         },
         en: {
             // Navigasyon
@@ -168,7 +212,51 @@ function initializeLanguageToggle() {
             'Metin': 'Metin',
             'Yazılım Geliştirici': 'Software Developer',
             'Portföyü Görüntüle': 'View Portfolio',
-            'İletişime Geç': 'Get In Touch'
+            'İletişime Geç': 'Get In Touch',
+            // Hakkımda
+            'About Me': 'About Me',
+            'Fark yaratan yenilikçi çözümler yaratmaya tutkuyla bağlıyım': 'Passionate about creating innovative solutions that make a difference',
+            'Mega Projeler': 'Mega Projects',
+            'Yıl Deneyim': 'Years Experience',
+            'Mutlu Müşteriler': 'Happy Clients',
+            'GitHub Yıldızları': 'GitHub Stars',
+            // Portföy
+            'Benim': 'My',
+            'Portföyüm': 'Portfolio',
+            'Son projelerim ve yeniliklerimin bir sergisi': 'A showcase of my latest projects and innovations',
+            'Hepsi': 'All',
+            'Web': 'Web',
+            'Desktop': 'Desktop',
+            'Mobil': 'Mobile',
+            'API/Backend': 'API/Backend',
+            'Diğer': 'Other',
+            'GitHub\'da Tüm Projelerim': 'All My Projects on GitHub',
+            // İletişim
+            'Hadi Çalışalım': 'Let\'s Work',
+            'Birlikte': 'Together',
+            'Bir projeniz mi var? Fikirlerinizi hayata geçirebilmem için nasıl yardımcı olabileceğimi konuşalım': 'Do you have a project? Let\'s discuss how I can help bring your ideas to life',
+            'Ad': 'Name',
+            'E-posta': 'Email',
+            'Konu': 'Subject',
+            'Mesaj': 'Message',
+            'Mesajı Gönder': 'Send Message',
+            // İletişim Bilgileri
+            'Konum': 'Location',
+            'Türkiye/Kahramanmaraş': 'Turkey/Kahramanmaraş',
+            'Uzaktan Çalışma İçin Uygun': 'Available for Remote Work',
+            'Telefon': 'Phone',
+            'Yanıt Süresi': 'Response Time',
+            'Genellikle 24 saat içinde': 'Usually within 24 hours',
+            'Benimle Bağlantıya Geç': 'Connect With Me',
+            // Footer
+            'Hızlı Linkler': 'Quick Links',
+            'Hizmetler': 'Services',
+            'Öne Çıkan Projeler': 'Featured Projects',
+            'GitHub Portföyü': 'GitHub Portfolio',
+            '© 2025 Metin KEPENEK. Tüm hakları saklıdır.': '© 2025 Metin KEPENEK. All rights reserved.',
+            // Mobil
+            'Dil / Language': 'Language / Dil',
+            'Tema / Theme': 'Theme / Tema'
         }
     };
 
@@ -183,6 +271,19 @@ function initializeLanguageToggle() {
                 element.textContent = trText;
             } else {
                 element.textContent = enText;
+            }
+        });
+
+        // Placeholder'ları güncelle
+        const placeholderElements = document.querySelectorAll('[data-tr-placeholder][data-en-placeholder]');
+        placeholderElements.forEach(element => {
+            const trPlaceholder = element.getAttribute('data-tr-placeholder');
+            const enPlaceholder = element.getAttribute('data-en-placeholder');
+            
+            if (lang === 'tr') {
+                element.placeholder = trPlaceholder;
+            } else {
+                element.placeholder = enPlaceholder;
             }
         });
 
