@@ -125,87 +125,103 @@ function initializeMobileMenu() {
     });
 }
 
-// Dil değiştirme sistemi
+// Dil değiştirme sistemi - Toggle Buton
 function initializeLanguageToggle() {
+    console.log('🌐 Dil sistemi başlatılıyor...');
+    
     const languageToggle = document.getElementById('language-toggle');
-    const languageMenu = document.getElementById('language-menu');
+    const mobileLanguageToggle = document.getElementById('mobile-language-toggle');
     const currentLangSpan = document.getElementById('current-lang');
-    const langOptions = document.querySelectorAll('.lang-option');
-    const mobileLangOptions = document.querySelectorAll('.lang-option-mobile');
+    const mobileCurrentLangSpan = document.getElementById('mobile-current-lang');
+
+    // Element kontrolü
+    if (!languageToggle || !currentLangSpan) {
+        console.error('❌ Dil değiştirici elementleri bulunamadı!');
+        return;
+    }
 
     let currentLang = localStorage.getItem('language') || 'tr';
+    console.log('🔤 Mevcut dil:', currentLang);
 
     // Dili uygula
     function applyLanguage(lang) {
+        console.log('🔄 Dil değiştiriliyor:', lang);
+        
         const elements = document.querySelectorAll('[data-tr][data-en]');
+        console.log('📝 Çevrilecek element sayısı:', elements.length);
+        
         elements.forEach(element => {
             const trText = element.getAttribute('data-tr');
             const enText = element.getAttribute('data-en');
             
-            if (lang === 'tr') {
-                element.textContent = trText;
-            } else {
-                element.textContent = enText;
+            if (trText && enText) {
+                if (lang === 'tr') {
+                    element.textContent = trText;
+                } else {
+                    element.textContent = enText;
+                }
             }
         });
 
         // Placeholder'ları güncelle
         const placeholderElements = document.querySelectorAll('[data-tr-placeholder][data-en-placeholder]');
+        console.log('🔤 Placeholder element sayısı:', placeholderElements.length);
+        
         placeholderElements.forEach(element => {
             const trPlaceholder = element.getAttribute('data-tr-placeholder');
             const enPlaceholder = element.getAttribute('data-en-placeholder');
             
-            if (lang === 'tr') {
-                element.placeholder = trPlaceholder;
-            } else {
-                element.placeholder = enPlaceholder;
+            if (trPlaceholder && enPlaceholder) {
+                if (lang === 'tr') {
+                    element.placeholder = trPlaceholder;
+                } else {
+                    element.placeholder = enPlaceholder;
+                }
             }
         });
 
-        // Dil göstergesini güncelle
-        currentLangSpan.textContent = lang.toUpperCase();
-        
-        // Mobil butonları güncelle
-        mobileLangOptions.forEach(btn => {
-            const btnLang = btn.getAttribute('data-lang');
-            btn.classList.remove('active', 'bg-primary-600', 'text-white');
-            btn.classList.add('bg-gray-700', 'text-gray-300');
-            
-            if (btnLang === lang) {
-                btn.classList.remove('bg-gray-700', 'text-gray-300');
-                btn.classList.add('active', 'bg-primary-600', 'text-white');
-            }
-        });
+        // Dil göstergelerini güncelle
+        const langText = lang.toUpperCase();
+        if (currentLangSpan) {
+            currentLangSpan.textContent = langText;
+        }
+        if (mobileCurrentLangSpan) {
+            mobileCurrentLangSpan.textContent = langText;
+        }
 
         // GitHub projelerindeki kategori isimlerini güncelle
         updateProjectCategories(lang);
 
+        // Sonuç sayacını güncelle (eğer varsa)
+        const visibleProjects = document.querySelectorAll('.project-card:not(.hidden)');
+        if (visibleProjects.length > 0 && typeof updateResultsCount === 'function') {
+            updateResultsCount(visibleProjects.length);
+        }
+
         localStorage.setItem('language', lang);
         currentLang = lang;
+        
+        console.log('✅ Dil başarıyla değiştirildi:', lang);
+    }
+
+    // Dil toggle fonksiyonu
+    function toggleLanguage() {
+        const newLang = currentLang === 'tr' ? 'en' : 'tr';
+        applyLanguage(newLang);
     }
 
     // Proje kategorilerini güncelle
     function updateProjectCategories(lang) {
-        // Proje kartlarındaki kategori metinlerini güncelle
         setTimeout(() => {
             const categoryElements = document.querySelectorAll('.project-card .text-xs.opacity-75');
             categoryElements.forEach(element => {
                 const currentText = element.textContent.trim();
                 
-                // Türkçe'den İngilizce'ye çevir
                 if (lang === 'en') {
-                    if (currentText === 'Web') element.textContent = 'Web';
-                    else if (currentText === 'Desktop') element.textContent = 'Desktop';
-                    else if (currentText === 'Mobil') element.textContent = 'Mobile';
-                    else if (currentText === 'API/Backend') element.textContent = 'API/Backend';
+                    if (currentText === 'Mobil') element.textContent = 'Mobile';
                     else if (currentText === 'Diğer') element.textContent = 'Other';
-                }
-                // İngilizce'den Türkçe'ye çevir
-                else if (lang === 'tr') {
-                    if (currentText === 'Web') element.textContent = 'Web';
-                    else if (currentText === 'Desktop') element.textContent = 'Desktop';
-                    else if (currentText === 'Mobile') element.textContent = 'Mobil';
-                    else if (currentText === 'API/Backend') element.textContent = 'API/Backend';
+                } else if (lang === 'tr') {
+                    if (currentText === 'Mobile') element.textContent = 'Mobil';
                     else if (currentText === 'Other') element.textContent = 'Diğer';
                 }
             });
@@ -215,35 +231,25 @@ function initializeLanguageToggle() {
     // Başlangıç dilini uygula
     applyLanguage(currentLang);
 
-    // Dil menüsü toggle
-    if (languageToggle && languageMenu) {
+    // Desktop dil toggle butonu
+    if (languageToggle) {
         languageToggle.addEventListener('click', (e) => {
             e.stopPropagation();
-            languageMenu.classList.toggle('hidden');
-        });
-
-        // Dışarı tıklanınca menüyü kapat
-        document.addEventListener('click', () => {
-            languageMenu.classList.add('hidden');
+            toggleLanguage();
+            console.log('🖱️ Desktop dil toggle edildi');
         });
     }
 
-    // Dil seçenekleri
-    langOptions.forEach(option => {
-        option.addEventListener('click', () => {
-            const selectedLang = option.getAttribute('data-lang');
-            applyLanguage(selectedLang);
-            languageMenu.classList.add('hidden');
+    // Mobil dil toggle butonu
+    if (mobileLanguageToggle) {
+        mobileLanguageToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleLanguage();
+            console.log('📱 Mobil dil toggle edildi');
         });
-    });
-
-    // Mobil dil seçenekleri
-    mobileLangOptions.forEach(option => {
-        option.addEventListener('click', () => {
-            const selectedLang = option.getAttribute('data-lang');
-            applyLanguage(selectedLang);
-        });
-    });
+    }
+    
+    console.log('✅ Dil toggle sistemi başarıyla başlatıldı!');
 }
 
 // GitHub projelerini yükleme fonksiyonu - Gelişmiş Arama ve Filtreleme ile
@@ -1296,13 +1302,16 @@ function initializeLoadingScreen() {
     const typingStatus = document.getElementById('typing-status');
     const typingConsole = document.getElementById('typing-console');
     
-    // Typing data
+    // Dil kontrolü
+    const currentLang = localStorage.getItem('language') || 'tr';
+    
+    // Typing data - dil bazlı
     const typingData = {
         name: "Metin KEPENEK",
-        role: "Software Developer",
+        role: currentLang === 'tr' ? "Yazılım Geliştirici" : "Software Developer",
         skills: '"C#", "JavaScript", "HTML"',
-        status: "Ready for Projects",
-        console: '"Portfolio loaded!"'
+        status: currentLang === 'tr' ? "Projeler İçin Hazır" : "Ready for Projects",
+        console: currentLang === 'tr' ? '"Portfolio yüklendi!"' : '"Portfolio loaded!"'
     };
     
     let progress = 0;
@@ -1336,6 +1345,19 @@ function initializeLoadingScreen() {
         }, 30); // Daha sık güncelleme
     }
     
+    // Loading tamamlandığında dil sistemini başlat
+    function finishLoading() {
+        loadingScreen.classList.add('fade-out');
+        document.body.style.overflow = 'auto';
+        
+        // Loading screen'i kaldır ve dil sistemini başlat
+        setTimeout(() => {
+            loadingScreen.remove();
+            // Dil sistemini başlat
+            initializeLanguageToggle();
+        }, 300);
+    }
+    
     // Start typing sequence (kısaltılmış süreler)
     setTimeout(() => {
         // Step 1: Type name
@@ -1364,13 +1386,7 @@ function initializeLoadingScreen() {
                                             
                                             // Finish loading (hızlandırılmış)
                                             setTimeout(() => {
-                                                loadingScreen.classList.add('fade-out');
-                                                document.body.style.overflow = 'auto';
-                                                
-                                                // Remove loading screen
-                                                setTimeout(() => {
-                                                    loadingScreen.remove();
-                                                }, 300); // Daha hızlı kaldırma
+                                                finishLoading();
                                             }, 400); // Daha kısa bekleme
                                         }, 40); // Daha hızlı typing
                                     }, 200); // Daha kısa bekleme
@@ -1397,9 +1413,7 @@ function initializeLoadingScreen() {
             percentageSpan.textContent = '100%';
             
             setTimeout(() => {
-                loadingScreen.classList.add('fade-out');
-                document.body.style.overflow = 'auto';
-                setTimeout(() => loadingScreen.remove(), 300);
+                finishLoading();
             }, 800); // Çok daha kısa
         }, 300);
     }
@@ -1629,21 +1643,23 @@ function initializeEasterEggs() {
 
 // Tüm yeni fonksiyonları başlat
 document.addEventListener('DOMContentLoaded', function() {
-    // Mevcut fonksiyonlar
-    initializeNavigation();
-    initializeMobileMenu();
-    initializeLanguageToggle();
-    loadGitHubProjects();
-    initializeAdvancedFormValidation();
-    initializeScrollEffects();
-    initializeParticles();
-    
-    // Yeni fonksiyonlar
-    initializeLoadingScreen();
-    initializeWhatsAppWidget();
-    initializeSocialShare();
-    initializeEasterEggs();
-    
     // Loading sırasında scroll'u engelle
     document.body.style.overflow = 'hidden';
+    
+    // Loading screen'i başlat (dil sistemi loading tamamlandıktan sonra başlayacak)
+    initializeLoadingScreen();
+    
+    // Diğer sistemleri başlat (loading screen tamamlandıktan sonra çalışacaklar)
+    setTimeout(() => {
+        initializeNavigation();
+        initializeMobileMenu();
+        // initializeLanguageToggle(); // Bu artık loading screen'den sonra çalışacak
+        loadGitHubProjects();
+        initializeAdvancedFormValidation();
+        initializeScrollEffects();
+        initializeParticles();
+        initializeWhatsAppWidget();
+        initializeSocialShare();
+        initializeEasterEggs();
+    }, 100);
 });
