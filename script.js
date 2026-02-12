@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeAdvancedFormValidation(); // Gelişmiş form validasyonu
     initializeScrollEffects();
     initializeParticles(); // Parçacık sistemini başlat
+    initializeWhatsAppWidget();
+    initializeSocialShare();
+    initializeEasterEggs();
 });
 
 // Navigasyon işlevselliği
@@ -1289,135 +1292,6 @@ function showNotification(message, type = 'info', duration = 5000) {
         }
     }, duration);
 }
-// Loading Screen Fonksiyonu - Kod Yazma Animasyonu (Hızlandırılmış)
-function initializeLoadingScreen() {
-    const loadingScreen = document.getElementById('loading-screen');
-    const progressBar = document.getElementById('loading-progress');
-    const percentageSpan = document.getElementById('loading-percentage');
-    
-    // Typing elements
-    const typingName = document.getElementById('typing-name');
-    const typingRole = document.getElementById('typing-role');
-    const typingSkills = document.getElementById('typing-skills');
-    const typingStatus = document.getElementById('typing-status');
-    const typingConsole = document.getElementById('typing-console');
-    
-    // Dil kontrolü
-    const currentLang = localStorage.getItem('language') || 'tr';
-    
-    // Typing data - dil bazlı
-    const typingData = {
-        name: "Metin KEPENEK",
-        role: currentLang === 'tr' ? "Yazılım Geliştirici" : "Software Developer",
-        skills: '"C#", "JavaScript", "HTML"',
-        status: currentLang === 'tr' ? "Projeler İçin Hazır" : "Ready for Projects",
-        console: currentLang === 'tr' ? '"Portfolio yüklendi!"' : '"Portfolio loaded!"'
-    };
-    
-    let progress = 0;
-    
-    // Typing function (hızlandırılmış)
-    function typeText(element, text, callback, speed = 50) {
-        let i = 0;
-        element.textContent = '';
-        
-        const typeInterval = setInterval(() => {
-            if (i < text.length) {
-                element.textContent += text.charAt(i);
-                i++;
-            } else {
-                clearInterval(typeInterval);
-                if (callback) callback();
-            }
-        }, speed);
-    }
-    
-    // Progress update function (hızlandırılmış)
-    function updateProgress(targetProgress) {
-        const progressInterval = setInterval(() => {
-            if (progress < targetProgress) {
-                progress += 5; // Daha hızlı artış
-                progressBar.style.width = progress + '%';
-                percentageSpan.textContent = progress + '%';
-            } else {
-                clearInterval(progressInterval);
-            }
-        }, 30); // Daha sık güncelleme
-    }
-    
-    // Loading tamamlandığında dil sistemini başlat
-    function finishLoading() {
-        loadingScreen.classList.add('fade-out');
-        document.body.style.overflow = 'auto';
-        
-        // Loading screen'i kaldır ve dil sistemini başlat
-        setTimeout(() => {
-            loadingScreen.remove();
-            // Dil sistemini başlat
-            initializeLanguageToggle();
-        }, 300);
-    }
-    
-    // Start typing sequence (kısaltılmış süreler)
-    setTimeout(() => {
-        // Step 1: Type name
-        typeText(typingName, typingData.name, () => {
-            updateProgress(20);
-            
-            // Step 2: Type role
-            setTimeout(() => {
-                typeText(typingRole, typingData.role, () => {
-                    updateProgress(40);
-                    
-                    // Step 3: Type skills
-                    setTimeout(() => {
-                        typeText(typingSkills, typingData.skills, () => {
-                            updateProgress(60);
-                            
-                            // Step 4: Type status
-                            setTimeout(() => {
-                                typeText(typingStatus, typingData.status, () => {
-                                    updateProgress(80);
-                                    
-                                    // Step 5: Type console log
-                                    setTimeout(() => {
-                                        typeText(typingConsole, typingData.console, () => {
-                                            updateProgress(100);
-                                            
-                                            // Finish loading (hızlandırılmış)
-                                            setTimeout(() => {
-                                                finishLoading();
-                                            }, 400); // Daha kısa bekleme
-                                        }, 40); // Daha hızlı typing
-                                    }, 200); // Daha kısa bekleme
-                                }, 40); // Daha hızlı typing
-                            }, 200); // Daha kısa bekleme
-                        }, 35); // Daha hızlı typing
-                    }, 200); // Daha kısa bekleme
-                }, 45); // Daha hızlı typing
-            }, 200); // Daha kısa bekleme
-        }, 60); // Daha hızlı typing
-    }, 500); // Daha erken başlama
-    
-    // Fallback - if page is already loaded (daha hızlı)
-    if (document.readyState === 'complete') {
-        setTimeout(() => {
-            typingName.textContent = typingData.name;
-            typingRole.textContent = typingData.role;
-            typingSkills.textContent = typingData.skills;
-            typingStatus.textContent = typingData.status;
-            typingConsole.textContent = typingData.console;
-            
-            progress = 100;
-            progressBar.style.width = '100%';
-            percentageSpan.textContent = '100%';
-            
-            setTimeout(() => {
-                finishLoading();
-            }, 800); // Çok daha kısa
-        }, 300);
-    }
-}
 
 // WhatsApp Widget Fonksiyonu
 function initializeWhatsAppWidget() {
@@ -1569,7 +1443,9 @@ function initializeEasterEggs() {
     function activateEasterEgg() {
         // Bildirim göster
         const notification = document.getElementById('easter-egg-notification');
-        notification.classList.add('show');
+        if (notification) {
+            notification.classList.add('show');
+        }
         
         // Sayfa elementlerine glow efekti ekle
         document.body.classList.add('konami-activated');
@@ -1582,7 +1458,9 @@ function initializeEasterEggs() {
         
         // 5 saniye sonra bildirimi kapat
         setTimeout(() => {
-            notification.classList.remove('show');
+            if (notification) {
+                notification.classList.remove('show');
+            }
         }, 5000);
         
         // 10 saniye sonra efektleri kapat
@@ -1640,26 +1518,3 @@ function initializeEasterEggs() {
         });
     }
 }
-
-// Tüm yeni fonksiyonları başlat
-document.addEventListener('DOMContentLoaded', function() {
-    // Loading sırasında scroll'u engelle
-    document.body.style.overflow = 'hidden';
-    
-    // Loading screen'i başlat (dil sistemi loading tamamlandıktan sonra başlayacak)
-    initializeLoadingScreen();
-    
-    // Diğer sistemleri başlat (loading screen tamamlandıktan sonra çalışacaklar)
-    setTimeout(() => {
-        initializeNavigation();
-        initializeMobileMenu();
-        // initializeLanguageToggle(); // Bu artık loading screen'den sonra çalışacak
-        loadGitHubProjects();
-        initializeAdvancedFormValidation();
-        initializeScrollEffects();
-        initializeParticles();
-        initializeWhatsAppWidget();
-        initializeSocialShare();
-        initializeEasterEggs();
-    }, 100);
-});
