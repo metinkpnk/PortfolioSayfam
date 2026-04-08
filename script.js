@@ -1518,3 +1518,144 @@ function initializeEasterEggs() {
         });
     }
 }
+
+
+// Mobil Optimizasyon Fonksiyonları
+function initializeMobileOptimizations() {
+    // Mobil cihaz kontrolü
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    if (isMobile || isTouch) {
+        document.body.classList.add('mobile-device');
+        
+        // Viewport height düzeltmesi (iOS için)
+        const setVH = () => {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        };
+        
+        setVH();
+        window.addEventListener('resize', setVH);
+        window.addEventListener('orientationchange', setVH);
+        
+        // Touch event optimizasyonları
+        document.addEventListener('touchstart', function() {}, { passive: true });
+        document.addEventListener('touchmove', function() {}, { passive: true });
+        
+        // Particle effects'i mobilde azalt
+        const particleContainer = document.getElementById('particles-container');
+        if (particleContainer && window.innerWidth < 768) {
+            particleContainer.style.opacity = '0.3';
+        }
+        
+        // Shooting stars'ı mobilde kaldır
+        if (window.innerWidth < 768) {
+            const shootingStars = document.querySelectorAll('.shooting-star');
+            shootingStars.forEach(star => star.remove());
+        }
+        
+        // Scroll performance
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    // Scroll işlemleri
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+        
+        // Lazy loading için intersection observer
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                            observer.unobserve(img);
+                        }
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        // Prevent zoom on double tap (iOS)
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+        
+        // Mobil menü kapatma - dışarı tıklama
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        
+        if (mobileMenu && mobileMenuButton) {
+            document.addEventListener('touchstart', function(e) {
+                if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        window.closeMobileMenu();
+                    }
+                }
+            }, { passive: true });
+        }
+        
+        console.log('✓ Mobil optimizasyonlar aktif');
+    }
+}
+
+// Performans optimizasyonları
+function optimizePerformance() {
+    // Lazy load images
+    if ('loading' in HTMLImageElement.prototype) {
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        images.forEach(img => {
+            img.src = img.dataset.src || img.src;
+        });
+    }
+    
+    // Preconnect to external domains
+    const preconnectDomains = [
+        'https://api.github.com',
+        'https://fonts.googleapis.com',
+        'https://fonts.gstatic.com',
+        'https://cdnjs.cloudflare.com'
+    ];
+    
+    preconnectDomains.forEach(domain => {
+        const link = document.createElement('link');
+        link.rel = 'preconnect';
+        link.href = domain;
+        link.crossOrigin = 'anonymous';
+        document.head.appendChild(link);
+    });
+    
+    // Reduce animations on low-end devices
+    if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
+        document.body.classList.add('reduce-animations');
+    }
+    
+    console.log('✓ Performans optimizasyonları aktif');
+}
+
+// Sayfa yüklendiğinde mobil optimizasyonları başlat
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        initializeMobileOptimizations();
+        optimizePerformance();
+    });
+} else {
+    initializeMobileOptimizations();
+    optimizePerformance();
+}

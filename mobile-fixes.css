@@ -1,0 +1,713 @@
+/* ULTRA MOBİL OPTİMİZASYON - En Uyumlu Hale Getirme */
+
+/* Temel Mobil Ayarları */
+@media (max-width: 768px) {
+    /* Body ve HTML */
+    html {
+        font-size: 16px !important;
+        -webkit-text-size-adjust: 100% !important;
+    }
+    
+    body {
+        padding-top: 56px !important;
+        overflow-x: hidden !important;
+        width: 100% !important;
+    }
+    
+    /* Container'lar */
+    .max-w-7xl,
+    .container {
+        max-width: 100% !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    /* Tüm section'lar */
+    section {
+        padding: 2.5rem 1rem !important;
+        overflow-x: hidden !important;
+    }
+    
+    /* Navbar - Mobil */
+    #navbar {
+        height: 56px !important;
+        padding: 0 1rem !important;
+    }
+    
+    #navbar .h-16 {
+        height: 56px !important;
+    }
+    
+    #navbar .text-xl {
+        font-size: 0.9375rem !important;
+    }
+    
+    /* Logo küçült */
+    #navbar a i {
+        font-size: 0.875rem !important;
+    }
+    
+    /* Mobil menü tam ekran */
+    #mobile-menu {
+        position: fixed !important;
+        top: 56px !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: rgba(17, 24, 39, 0.98) !important;
+        backdrop-filter: blur(10px) !important;
+        z-index: 999 !important;
+        overflow-y: auto !important;
+    }
+    
+    #mobile-menu .space-y-1 {
+        padding: 2rem 1rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+    
+    #mobile-menu a {
+        font-size: 1.125rem !important;
+        padding: 1rem !important;
+        text-align: center !important;
+        border-radius: 0.5rem !important;
+        background: rgba(55, 65, 81, 0.5) !important;
+        border: 1px solid rgba(75, 85, 99, 0.3) !important;
+    }
+    
+    /* Hero Section - Mobil */
+    #home {
+        min-height: auto !important;
+        padding: 2rem 1rem !important;
+    }
+    
+    #home .grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    /* Profil resmi */
+    #home .w-72,
+    #home .h-72,
+    #home .lg\:w-96,
+    #home .lg\:h-96 {
+        width: 10rem !important;
+        height: 10rem !important;
+        margin: 0 auto !important;
+    }
+    
+    /* Hero başlıklar */
+    #home h1 {
+        font-size: 2rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    #home .text-xl {
+        font-size: 1rem !important;
+    }
+    
+    #home .text-lg {
+        font-size: 0.9375rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    /* CTA Butonları */
+    #home .flex.flex-col.sm\:flex-row {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 0.75rem !important;
+    }
+    
+    #home .flex.flex-col.sm\:flex-row a {
+        width: 100% !important;
+        padding: 0.875rem 1.5rem !important;
+        font-size: 0.9375rem !important;
+        text-align: center !important;
+        justify-content: center !important;
+    }
+    
+    /* Sosyal linkler */
+    #home .flex.justify-center.lg\:justify-start.space-x-6 {
+        justify-content: center !important;
+        gap: 1rem !important;
+        margin-top: 1.5rem !important;
+        flex-wrap: wrap !important;
+    }
+    
+    #home .flex.justify-center.lg\:justify-start.space-x-6 a {
+        font-size: 1.25rem !important;
+        width: 44px !important;
+        height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* About Section - Mobil */
+    #about {
+        padding: 2.5rem 1rem !important;
+    }
+    
+    #about h2 {
+        font-size: 1.75rem !important;
+    }
+    
+    #about .text-xl {
+        font-size: 1rem !important;
+    }
+    
+    #about .text-lg {
+        font-size: 0.9375rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    #about .grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    /* İstatistik kartları 2x2 */
+    #about .grid.grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.75rem !important;
+    }
+    
+    #about .grid.grid-cols-2 > div {
+        padding: 1rem !important;
+    }
+    
+    #about .grid.grid-cols-2 .text-3xl {
+        font-size: 1.5rem !important;
+    }
+    
+    /* Teknoloji ikonları */
+    #about img {
+        width: 2rem !important;
+        height: 2rem !important;
+    }
+    
+    /* Education Timeline */
+    .timeline-item {
+        margin-left: 1.5rem !important;
+    }
+    
+    .timeline-dot {
+        left: -0.75rem !important;
+        width: 0.875rem !important;
+        height: 0.875rem !important;
+    }
+    
+    .timeline-content {
+        padding: 1rem !important;
+    }
+    
+    .timeline-content h4 {
+        font-size: 1rem !important;
+    }
+    
+    .timeline-content h5 {
+        font-size: 0.9375rem !important;
+    }
+    
+    /* Sertifikalar */
+    .certificate-card {
+        padding: 1rem !important;
+    }
+    
+    .certificate-icon {
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+    }
+    
+    /* Portfolio Section - Mobil */
+    #portfolio {
+        padding: 2.5rem 1rem !important;
+    }
+    
+    #portfolio h2 {
+        font-size: 1.75rem !important;
+    }
+    
+    /* Arama kutusu */
+    #project-search {
+        width: 100% !important;
+        padding: 0.875rem 1rem 0.875rem 2.75rem !important;
+        font-size: 1rem !important;
+    }
+    
+    /* Filtre butonları */
+    .filter-btn {
+        font-size: 0.8125rem !important;
+        padding: 0.5rem 0.875rem !important;
+        white-space: nowrap !important;
+    }
+    
+    #tech-filters {
+        gap: 0.5rem !important;
+        justify-content: center !important;
+    }
+    
+    /* Proje kartları */
+    #portfolio-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem !important;
+    }
+    
+    .project-card {
+        padding: 1.25rem !important;
+    }
+    
+    .project-card h3 {
+        font-size: 1.125rem !important;
+    }
+    
+    .project-card p {
+        font-size: 0.9375rem !important;
+        line-height: 1.5 !important;
+    }
+    
+    .tech-tag {
+        font-size: 0.6875rem !important;
+        padding: 0.25rem 0.5rem !important;
+    }
+    
+    .project-links {
+        flex-direction: column !important;
+        gap: 0.625rem !important;
+    }
+    
+    .project-links a {
+        width: 100% !important;
+        padding: 0.75rem !important;
+        font-size: 0.9375rem !important;
+        text-align: center !important;
+        justify-content: center !important;
+    }
+    
+    .project-stat {
+        font-size: 0.75rem !important;
+        padding: 0.25rem 0.5rem !important;
+    }
+    
+    /* Contact Section - Mobil */
+    #contact {
+        padding: 2.5rem 1rem !important;
+    }
+    
+    #contact h2 {
+        font-size: 1.75rem !important;
+    }
+    
+    #contact .grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    /* Form */
+    #contact-form input,
+    #contact-form textarea {
+        font-size: 1rem !important;
+        padding: 0.875rem !important;
+    }
+    
+    #contact-form textarea {
+        min-height: 150px !important;
+    }
+    
+    #contact-form button {
+        width: 100% !important;
+        padding: 0.875rem !important;
+        font-size: 1rem !important;
+    }
+    
+    /* İletişim bilgileri */
+    #contact .w-12 {
+        width: 2.75rem !important;
+        height: 2.75rem !important;
+    }
+    
+    #contact h3 {
+        font-size: 1.125rem !important;
+    }
+    
+    /* Sosyal linkler grid */
+    #contact .flex.space-x-4 {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 0.75rem !important;
+    }
+    
+    #contact .w-10 {
+        width: 100% !important;
+        height: 3rem !important;
+    }
+    
+    /* Widget'lar */
+    #whatsapp-widget,
+    #share-widget {
+        bottom: 1rem !important;
+    }
+    
+    #whatsapp-widget {
+        right: 1rem !important;
+    }
+    
+    #share-widget {
+        left: 1rem !important;
+    }
+    
+    #whatsapp-btn,
+    #share-btn {
+        width: 3.5rem !important;
+        height: 3.5rem !important;
+        font-size: 1.25rem !important;
+    }
+    
+    #whatsapp-popup {
+        width: calc(100vw - 2rem) !important;
+        max-width: 320px !important;
+        right: 1rem !important;
+        bottom: 5rem !important;
+    }
+    
+    /* Scroll indicator */
+    .animate-bounce-slow {
+        display: none !important;
+    }
+    
+    /* Animasyonları hafiflet */
+    * {
+        animation-duration: 0.3s !important;
+        transition-duration: 0.2s !important;
+    }
+    
+    /* Particle effects hafiflet */
+    #particles-container {
+        opacity: 0.4 !important;
+    }
+    
+    .shooting-star {
+        display: none !important;
+    }
+    
+    /* Backdrop blur hafiflet */
+    .backdrop-blur-md {
+        backdrop-filter: blur(6px) !important;
+    }
+    
+    /* Shadow'ları hafiflet */
+    .shadow-2xl {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25) !important;
+    }
+    
+    .shadow-xl {
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2) !important;
+    }
+}
+
+/* Çok Küçük Ekranlar (iPhone SE, vb.) */
+@media (max-width: 375px) {
+    body {
+        font-size: 14px !important;
+    }
+    
+    section {
+        padding: 2rem 0.75rem !important;
+    }
+    
+    #home h1 {
+        font-size: 1.75rem !important;
+    }
+    
+    #home .w-72,
+    #home .h-72,
+    #home .lg\:w-96,
+    #home .lg\:h-96 {
+        width: 8rem !important;
+        height: 8rem !important;
+    }
+    
+    .project-card {
+        padding: 1rem !important;
+    }
+    
+    #navbar {
+        padding: 0 0.75rem !important;
+    }
+}
+
+/* Landscape Orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+    #home {
+        padding: 1.5rem 1rem !important;
+    }
+    
+    #home .grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    #home .w-72,
+    #home .h-72,
+    #home .lg\:w-96,
+    #home .lg\:h-96 {
+        width: 7rem !important;
+        height: 7rem !important;
+    }
+    
+    #home .flex-col .flex {
+        flex-direction: row !important;
+    }
+    
+    #home .flex-col .flex a {
+        width: auto !important;
+        padding: 0.625rem 1rem !important;
+    }
+    
+    section {
+        padding: 1.5rem 1rem !important;
+    }
+}
+
+/* Touch Optimizasyonları */
+@media (hover: none) and (pointer: coarse) {
+    /* Minimum dokunma alanları */
+    button,
+    a,
+    input,
+    textarea,
+    select {
+        min-height: 44px !important;
+    }
+    
+    /* Active state */
+    button:active,
+    a:active {
+        opacity: 0.7 !important;
+        transform: scale(0.98) !important;
+    }
+    
+    /* Hover efektlerini kaldır */
+    *:hover {
+        transform: none !important;
+    }
+    
+    /* Smooth scroll */
+    html {
+        scroll-behavior: smooth !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+}
+
+/* iOS Safari Düzeltmeleri */
+@supports (-webkit-touch-callout: none) {
+    /* Input zoom'u engelle */
+    input,
+    textarea,
+    select {
+        font-size: 16px !important;
+    }
+    
+    /* Safe area */
+    body {
+        padding-bottom: env(safe-area-inset-bottom) !important;
+    }
+    
+    #navbar {
+        padding-top: env(safe-area-inset-top) !important;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    #particles-container,
+    .shooting-star,
+    .star {
+        display: none !important;
+    }
+}
+
+/* Dark Mode Optimizasyonu */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #0a0a0f !important;
+    }
+}
+
+
+/* Mobil Utility Classes */
+.mobile-device * {
+    -webkit-tap-highlight-color: rgba(147, 51, 234, 0.3) !important;
+}
+
+.mobile-device img {
+    -webkit-user-select: none !important;
+    user-select: none !important;
+}
+
+.mobile-device a,
+.mobile-device button {
+    -webkit-touch-callout: none !important;
+}
+
+/* Reduce animations class */
+.reduce-animations * {
+    animation-duration: 0.1s !important;
+    transition-duration: 0.1s !important;
+}
+
+/* Safe area insets */
+@supports (padding: env(safe-area-inset-top)) {
+    body {
+        padding-top: calc(56px + env(safe-area-inset-top)) !important;
+        padding-bottom: env(safe-area-inset-bottom) !important;
+    }
+    
+    #navbar {
+        padding-top: env(safe-area-inset-top) !important;
+        height: calc(56px + env(safe-area-inset-top)) !important;
+    }
+    
+    #mobile-menu {
+        top: calc(56px + env(safe-area-inset-top)) !important;
+        padding-bottom: env(safe-area-inset-bottom) !important;
+    }
+}
+
+/* Viewport height fix for mobile browsers */
+@media (max-width: 768px) {
+    .min-h-screen {
+        min-height: 100vh !important;
+        min-height: calc(var(--vh, 1vh) * 100) !important;
+    }
+}
+
+/* Prevent horizontal scroll */
+body,
+html {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+}
+
+/* Better text rendering on mobile */
+@media (max-width: 768px) {
+    body {
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        text-rendering: optimizeLegibility !important;
+    }
+}
+
+/* Loading states */
+.loading-skeleton {
+    background: linear-gradient(90deg, #1f2937 25%, #374151 50%, #1f2937 75%) !important;
+    background-size: 200% 100% !important;
+    animation: loading 1.5s ease-in-out infinite !important;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Focus visible for accessibility */
+@media (max-width: 768px) {
+    *:focus-visible {
+        outline: 2px solid #9333ea !important;
+        outline-offset: 2px !important;
+    }
+}
+
+/* Better button states on mobile */
+@media (max-width: 768px) {
+    button:active,
+    a:active,
+    .filter-btn:active {
+        background-color: rgba(147, 51, 234, 0.3) !important;
+        transform: scale(0.97) !important;
+    }
+}
+
+/* Optimize images for mobile */
+@media (max-width: 768px) {
+    img {
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: crisp-edges !important;
+    }
+}
+
+/* Better form inputs on mobile */
+@media (max-width: 768px) {
+    input,
+    textarea,
+    select {
+        -webkit-appearance: none !important;
+        appearance: none !important;
+        border-radius: 0.5rem !important;
+    }
+    
+    input:focus,
+    textarea:focus,
+    select:focus {
+        outline: none !important;
+        border-color: #9333ea !important;
+        box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.1) !important;
+    }
+}
+
+/* Prevent text selection on UI elements */
+@media (max-width: 768px) {
+    button,
+    .filter-btn,
+    .nav-link,
+    .mobile-nav-link {
+        -webkit-user-select: none !important;
+        user-select: none !important;
+    }
+}
+
+/* Better scrollbar on mobile */
+@media (max-width: 768px) {
+    ::-webkit-scrollbar {
+        width: 4px !important;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: transparent !important;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: rgba(147, 51, 234, 0.5) !important;
+        border-radius: 2px !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    #navbar,
+    #mobile-menu,
+    #whatsapp-widget,
+    #share-widget,
+    #particles-container,
+    .shooting-star {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+}
