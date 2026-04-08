@@ -711,3 +711,57 @@ html {
         color: black !important;
     }
 }
+
+
+/* Mobilde Float Animasyonunu Kaldır */
+@media (max-width: 768px) {
+    /* Hero section'daki float animasyonunu kaldır */
+    #home .animate-float,
+    #home .relative.flex {
+        animation: none !important;
+    }
+    
+    /* Profil resmini sabitle */
+    #home .w-72,
+    #home .h-72,
+    #home .lg\:w-96,
+    #home .lg\:h-96 {
+        transform: none !important;
+        animation: none !important;
+    }
+    
+    /* Dekoratif efektleri hafiflet */
+    #home .absolute.blur-xl {
+        animation-duration: 3s !important;
+    }
+    
+    /* Grid order - Mobilde resim üstte */
+    #home .grid {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    #home .lg\:order-2 {
+        order: 1 !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    #home .lg\:order-1 {
+        order: 2 !important;
+    }
+}
+
+/* Tüm animasyonları mobilde hafiflet */
+@media (max-width: 768px) {
+    .animate-float {
+        animation: none !important;
+    }
+    
+    .animate-bounce-slow {
+        animation: none !important;
+    }
+    
+    .animate-pulse {
+        animation-duration: 3s !important;
+    }
+}
