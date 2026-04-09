@@ -948,3 +948,40 @@ html {
         max-width: calc(100vw - 3rem) !important;
     }
 }
+
+
+/* Sosyal Medya Butonları Mobil Düzenleme */
+@media (max-width: 768px) {
+    /* Sosyal medya grid'i */
+    #contact .grid.grid-cols-3 {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 0.75rem !important;
+    }
+    
+    #contact .grid.grid-cols-3 a {
+        height: 3rem !important;
+        min-height: 44px !important;
+    }
+    
+    /* Başlık */
+    #contact .pt-6 h3 {
+        font-size: 0.9375rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Border üstte */
+    #contact .pt-6.border-t {
+        padding-top: 1.5rem !important;
+        margin-top: 1.5rem !important;
+    }
+}
+
+@media (max-width: 375px) {
+    #contact .grid.grid-cols-3 {
+        gap: 0.5rem !important;
+    }
+    
+    #contact .grid.grid-cols-3 a {
+        height: 2.75rem !important;
+    }
+}
